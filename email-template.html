@@ -1,0 +1,406 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>New DSSA Contact Message</title>
+
+<!-- Import fonts to match index page -->
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet" />
+<link href="https://fonts.googleapis.com/css2?family=Gabarito:wght@400;500;600;700;800;900&display=swap" rel="stylesheet" />
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@200;300;400;500;600;700;800&display=swap" rel="stylesheet" />
+
+<style>
+  * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+
+  body {
+    background: #ffffff;
+    font-family: 'Inter', sans-serif;
+    color: #1f2937;
+    line-height: 1.6;
+    min-height: 100vh;
+    position: relative;
+  }
+
+  /* Dark mode support for email clients that support it */
+  @media (prefers-color-scheme: dark) {
+    body {
+      background: linear-gradient(135deg, #000000 0%, #0a0a0a 50%, #000000 100%);
+      color: #e5e5f5;
+    }
+    
+    body::before {
+      content: '';
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: 
+        radial-gradient(circle at 20% 80%, rgba(192, 132, 252, 0.1) 0%, transparent 50%),
+        radial-gradient(circle at 80% 20%, rgba(57, 115, 250, 0.1) 0%, transparent 50%),
+        radial-gradient(circle at 40% 40%, rgba(192, 132, 252, 0.05) 0%, transparent 50%);
+      pointer-events: none;
+      z-index: -1;
+    }
+  }
+
+  .container {
+    max-width: 600px;
+    margin: 30px auto;
+    padding: 2rem;
+    background: #ffffff;
+    border-radius: 1.5rem;
+    border: 1px solid #e5e7eb;
+    box-shadow: 
+      0 8px 32px rgba(0, 0, 0, 0.1),
+      0 4px 16px rgba(0, 0, 0, 0.05);
+    position: relative;
+    overflow: hidden;
+  }
+
+  .container::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(
+      135deg,
+      rgba(192, 132, 252, 0.05) 0%,
+      rgba(57, 115, 250, 0.05) 50%,
+      rgba(192, 132, 252, 0.02) 100%
+    );
+    border-radius: 1.5rem;
+    pointer-events: none;
+    z-index: -1;
+  }
+
+  /* Dark mode container */
+  @media (prefers-color-scheme: dark) {
+    .container {
+      background: rgba(22, 24, 40, 0.3);
+      backdrop-filter: blur(20px) saturate(180%);
+      -webkit-backdrop-filter: blur(20px) saturate(180%);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      box-shadow: 
+        0 8px 32px rgba(0, 0, 0, 0.3),
+        inset 0 1px 4px rgba(255, 255, 255, 0.1),
+        0 0 0 1px rgba(255, 255, 255, 0.05);
+    }
+
+    .container::before {
+      background: linear-gradient(
+        135deg,
+        rgba(192, 132, 252, 0.1) 0%,
+        rgba(57, 115, 250, 0.1) 50%,
+        rgba(192, 132, 252, 0.05) 100%
+      );
+    }
+  }
+
+  .header {
+    text-align: center;
+    margin-bottom: 2rem;
+    padding-bottom: 1.5rem;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    position: relative;
+  }
+
+  .header::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 60px;
+    height: 2px;
+    background: linear-gradient(90deg, transparent, rgba(192, 132, 252, 0.6), transparent);
+    border-radius: 1px;
+  }
+
+  .header h1 {
+    font-family: "Bricolage Grotesque", sans-serif;
+    font-size: 1.75rem;
+    font-weight: 700;
+    color: #1f2937;
+    margin-bottom: 0.5rem;
+    position: relative;
+  }
+
+  .header h1::before {
+    content: '';
+    position: absolute;
+    top: -10px;
+    left: -10px;
+    right: -10px;
+    bottom: -10px;
+    background: linear-gradient(45deg, rgba(192, 132, 252, 0.1), rgba(57, 115, 250, 0.1));
+    border-radius: 1rem;
+    z-index: -1;
+    opacity: 0.3;
+    filter: blur(20px);
+  }
+
+  /* Dark mode header */
+  @media (prefers-color-scheme: dark) {
+    .header h1 {
+      color: #fff;
+      text-shadow: 0 0 20px rgba(192, 132, 252, 0.3);
+    }
+
+    .header h1::before {
+      opacity: 0.5;
+    }
+  }
+
+  .header .subtitle {
+    font-family: "Inter", sans-serif;
+    font-size: 0.9rem;
+    color: #6b7280;
+    font-weight: 500;
+  }
+
+  /* Dark mode subtitle */
+  @media (prefers-color-scheme: dark) {
+    .header .subtitle {
+      color: #9ca3af;
+    }
+  }
+
+  .field {
+    margin-bottom: 1.5rem;
+  }
+
+  .label {
+    font-family: "Inter", sans-serif;
+    font-size: 0.875rem;
+    font-weight: 600;
+    color: #6b7280;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    margin-bottom: 0.5rem;
+  }
+
+  /* Dark mode label */
+  @media (prefers-color-scheme: dark) {
+    .label {
+      color: #9ca3af;
+    }
+  }
+
+  .value {
+    background: #f9fafb;
+    padding: 1rem;
+    border-radius: 0.75rem;
+    color: #374151;
+    font-size: 0.95rem;
+    font-family: "Inter", sans-serif;
+    border: 1px solid #e5e7eb;
+    box-shadow: 
+      0 2px 8px rgba(0, 0, 0, 0.05),
+      inset 0 1px 2px rgba(255, 255, 255, 0.8);
+    position: relative;
+    overflow: hidden;
+  }
+
+  .value::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(
+      135deg,
+      rgba(192, 132, 252, 0.02) 0%,
+      rgba(57, 115, 250, 0.02) 100%
+    );
+    border-radius: 0.75rem;
+    pointer-events: none;
+  }
+
+  /* Dark mode value */
+  @media (prefers-color-scheme: dark) {
+    .value {
+      background: rgba(255, 255, 255, 0.08);
+      backdrop-filter: blur(10px);
+      -webkit-backdrop-filter: blur(10px);
+      color: #e5e5f5;
+      border: 1px solid rgba(255, 255, 255, 0.15);
+      box-shadow: 
+        0 2px 8px rgba(0, 0, 0, 0.1),
+        inset 0 1px 2px rgba(255, 255, 255, 0.1);
+    }
+
+    .value::before {
+      background: linear-gradient(
+        135deg,
+        rgba(255, 255, 255, 0.05) 0%,
+        rgba(255, 255, 255, 0.02) 100%
+      );
+    }
+  }
+
+  .value a {
+    color: #c084fc;
+    text-decoration: none;
+    font-weight: 500;
+  }
+
+  .value a:hover {
+    text-decoration: underline;
+  }
+
+  .message {
+    white-space: pre-line;
+    line-height: 1.6;
+  }
+
+  .footer {
+    margin-top: 2rem;
+    padding-top: 1.5rem;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    text-align: center;
+    position: relative;
+  }
+
+  .footer::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 60px;
+    height: 2px;
+    background: linear-gradient(90deg, transparent, rgba(192, 132, 252, 0.6), transparent);
+    border-radius: 1px;
+  }
+
+  .footer-text {
+    font-family: "Inter", sans-serif;
+    font-size: 0.8rem;
+    color: #6b7280;
+    font-weight: 500;
+  }
+
+  .footer-logo {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    margin-bottom: 0.5rem;
+    padding: 0.75rem 1.5rem;
+    background: #f3f4f6;
+    border-radius: 2rem;
+    border: 1px solid #e5e7eb;
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.05);
+  }
+
+  .footer-logo img {
+    width: 24px;
+    height: 24px;
+    border-radius: 50%;
+  }
+
+  .footer-logo span {
+    font-family: "Bricolage Grotesque", sans-serif;
+    font-size: 1rem;
+    font-weight: 700;
+    color: #1f2937;
+  }
+
+  /* Dark mode footer logo */
+  @media (prefers-color-scheme: dark) {
+    .footer-logo {
+      background: rgba(255, 255, 255, 0.05);
+      backdrop-filter: blur(10px);
+      -webkit-backdrop-filter: blur(10px);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      box-shadow: 0 4px 16px rgba(0, 0, 0, 0.1);
+    }
+
+    .footer-logo span {
+      color: #fff;
+    }
+  }
+
+  /* Responsive design */
+  @media (max-width: 768px) {
+    .container {
+      margin: 15px;
+      padding: 1.5rem;
+    }
+
+    .header h1 {
+      font-size: 1.5rem;
+    }
+
+    .value {
+      padding: 0.875rem;
+      font-size: 0.9rem;
+    }
+  }
+
+  @media (max-width: 480px) {
+    .container {
+      margin: 10px;
+      padding: 1rem;
+    }
+
+    .header h1 {
+      font-size: 1.25rem;
+    }
+
+    .value {
+      padding: 0.75rem;
+      font-size: 0.85rem;
+    }
+  }
+</style>
+</head>
+<body>
+  <div class="container">
+    <div class="header">
+      <h1>📩 New DSSA Contact Message</h1>
+      <div class="subtitle">A new message has been received through the DSSA website</div>
+    </div>
+
+    <div class="field">
+      <div class="label">Name</div>
+      <div class="value">{{name}}</div>
+    </div>
+
+    <div class="field">
+      <div class="label">Email</div>
+      <div class="value"><a href="mailto:{{email}}">{{email}}</a></div>
+    </div>
+
+    <div class="field">
+      <div class="label">Subject</div>
+      <div class="value">{{subject}}</div>
+    </div>
+
+    <div class="field">
+      <div class="label">Message</div>
+      <div class="value message">{{message}}</div>
+    </div>
+
+    <div class="footer">
+      <div class="footer-logo">
+       
+        <span>DSSA</span>
+      </div>
+      <div class="footer-text">
+        · Sent via DSSA Website ·
+      </div>
+    </div>
+  </div>
+</body>
+</html>

@@ -1,0 +1,1861 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Meet Our Team - DSSA</title>
+
+    <!-- Font Links -->
+    <link rel="icon" href="IMG/Favicon 1.png" type="image/x-icon" />
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Gabarito:wght@400;500;600;700;800;900&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@200;300;400;500;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+
+    <!-- Font Awesome -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    />
+
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      body {
+        font-family: "Inter", sans-serif;
+        scroll-behavior: smooth;
+        background-color: #000000;
+
+        background-size: cover;
+        background-position: center;
+        background-repeat: no-repeat;
+        background-attachment: fixed;
+        color: #000000;
+        min-height: 100vh;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+      }
+
+      /* Custom CSS for the text gradient */
+      .hero-text-gradient {
+        background: linear-gradient(90deg, #a78bfa, #818cf8);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        background-clip: text;
+        font-family: "Gabarito", sans-serif;
+      }
+
+      /* Glass morphism card styles */
+      .card-bg {
+        background: rgba(36, 38, 52, 0.4);
+        backdrop-filter: blur(24px) saturate(180%);
+        border: 1px solid rgba(255, 255, 255, 0.05);
+        box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2),
+          inset 0 1px 4px rgba(255, 255, 255, 0.1);
+        transition: all 0.3s ease;
+      }
+
+      /* Header styles */
+      header {
+        position: fixed;
+        top: 0;
+        z-index: 50;
+        width: 100%;
+        padding: 1rem;
+        display: flex;
+        justify-content: center;
+      }
+
+      nav {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        max-width: 80rem;
+        width: 100%;
+        height: 80px;
+        padding: 0.75rem 1rem;
+        backdrop-filter: blur(24px) saturate(180%);
+        background: rgba(36, 38, 52, 0.4);
+        border-radius: 9999px;
+        box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2),
+          inset 0 1px 4px rgba(255, 255, 255, 0.1);
+        margin: 1rem 0;
+        border: 1px solid rgba(255, 255, 255, 0.05);
+        transition: all 0.3s ease;
+        position: relative;
+      }
+
+      .logo {
+        display: flex;
+        align-items: center;
+        gap: 0.5rem;
+        text-decoration: none;
+        color: inherit;
+        padding: 0.5rem 1rem;
+        border-radius: 0.75rem;
+      }
+
+      .logo img {
+        border-radius: 50%;
+        width: 32px;
+        height: 32px;
+      }
+
+      .logo span {
+        font-family: "Bricolage Grotesque", sans-serif;
+        font-size: 1.25rem;
+        font-weight: 700;
+        letter-spacing: -0.025em;
+        color: white;
+      }
+
+      .nav-links {
+        display: none;
+        gap: 2rem;
+        font-size: 1.125rem;
+      }
+
+      .nav-links a {
+        text-decoration: none;
+        color: white;
+        transition: all 0.3s ease;
+        font-family: "Inter", sans-serif;
+        padding: 0.5rem 1rem;
+        border-radius: 0.5rem;
+        position: relative;
+      }
+
+      .nav-links a:hover {
+        color: #c084fc;
+      }
+
+      .nav-item {
+        display: flex;
+        align-items: center;
+        gap: 0.25rem;
+      }
+
+      .nav-item svg {
+        height: 1rem;
+        width: 1rem;
+      }
+
+      .contact-btn {
+        background: rgba(22, 24, 40, 0.8);
+        border-radius: 0.5rem;
+        color: white;
+        font-weight: 600;
+        padding: 0.75rem 1.5rem;
+        border-radius: 20px 20px 20px 20px;
+        border: 1px solid rgba(255, 255, 255, 0.2);
+        cursor: pointer;
+        transition: all 0.3s ease;
+        font-family: "Inter", sans-serif;
+        backdrop-filter: blur(8px);
+      }
+
+      .contact-btn:hover {
+        background: rgba(255, 255, 255, 0.1);
+        border-color: rgba(255, 255, 255, 0.3);
+        transform: translateY(-2px);
+      }
+
+      .hamburger {
+        display: none;
+        background: none;
+        border: none;
+        color: #fff;
+        font-size: 1.5rem;
+        cursor: pointer;
+        padding: 0.5rem;
+        border-radius: 8px;
+        transition: all 0.3s ease;
+        margin-left: auto;
+        margin-right: 1rem;
+      }
+
+      .hamburger:hover {
+        background: rgba(192, 132, 252, 0.1);
+        color: #c084fc;
+        transform: scale(1.05);
+      }
+
+      /* Dropdown menu */
+      .nav-dropdown {
+        position: absolute;
+        top: 100%;
+        right: 1rem;
+        width: 280px;
+        background: rgba(22, 24, 40, 0.95);
+        backdrop-filter: blur(24px);
+        border: 1px solid rgba(255, 255, 255, 0.1);
+        border-top: none;
+        border-radius: 0 0 16px 16px;
+        box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+        opacity: 0;
+        visibility: hidden;
+        transform: translateY(-10px);
+        transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        z-index: 1000;
+        padding: 1rem 0;
+      }
+
+      .nav-dropdown.open {
+        opacity: 1;
+        visibility: visible;
+        transform: translateY(0);
+      }
+
+      .nav-dropdown a {
+        display: block;
+        padding: 0.75rem 2rem;
+        color: #e5e5f5;
+        text-decoration: none;
+        font-family: "Inter", sans-serif;
+        font-size: 1rem;
+        transition: all 0.2s ease;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+      }
+
+      .nav-dropdown a:last-child {
+        border-bottom: none;
+      }
+
+      .nav-dropdown a:hover {
+        background: rgba(192, 132, 252, 0.1);
+        color: #c084fc;
+        padding-left: 2.5rem;
+      }
+
+      /* Responsive hamburger menu */
+      @media (max-width: 991.98px) {
+        .hamburger {
+          display: block;
+        }
+
+        .nav-links {
+          display: none;
+        }
+      }
+
+      @media (min-width: 992px) {
+        .hamburger {
+          display: none;
+        }
+
+        .nav-links {
+          display: flex;
+        }
+      }
+
+      /* Responsive team layout */
+      @media (max-width: 1024px) {
+        .team-grid {
+          grid-template-columns: repeat(2, 1fr);
+          gap: 2rem;
+        }
+      }
+
+      @media (max-width: 768px) {
+        .team-grid {
+          grid-template-columns: repeat(2, 1fr);
+          gap: 1.5rem;
+        }
+      }
+
+      @media (max-width: 600px) {
+        header {
+          padding: 0.5rem 0.5rem;
+        }
+        nav {
+          flex-direction: row;
+          padding: 0.75rem 1rem;
+          border-radius: 9999px;
+        }
+        /* Compact mobile nav */
+        nav {
+          flex-direction: row;
+          height: 64px;
+          padding: 0.5rem 0.75rem;
+          border-radius: 9999px;
+        }
+        .logo img {
+          width: 24px;
+          height: 24px;
+        }
+        .hamburger {
+          font-size: 1.25rem;
+          padding: 0.4rem;
+          margin-right: 0.5rem;
+        }
+        .contact-btn {
+          font-size: 0.85rem;
+          padding: 0.5rem 1rem;
+        }
+        .nav-dropdown {
+          width: 240px;
+          padding: 0.5rem 0;
+          right: 0.75rem;
+        }
+        .nav-dropdown a {
+          padding: 0.6rem 1rem;
+        }
+        .logo span {
+          font-size: 1rem;
+        }
+        .nav-links {
+          flex-direction: column;
+          gap: 1rem;
+          font-size: 1rem;
+          display: none !important;
+          margin-top: 0.5rem;
+        }
+        .contact-btn {
+          width: auto;
+          padding: 0.75rem 1.5rem;
+          margin-top: 0;
+        }
+        main {
+          margin-top: 4rem;
+          padding: 0.5rem;
+        }
+        .main-heading {
+          font-size: 1.5rem !important;
+        }
+        .team-section {
+          padding: 0.5rem;
+        }
+        .team-grid {
+          grid-template-columns: 1fr !important;
+          gap: 1rem;
+        }
+        .team-card {
+          padding: 0.5rem !important;
+        }
+        .team-avatar {
+          height: 120px !important;
+          font-size: 1.5rem !important;
+        }
+        .team-info {
+          padding: 0.5rem !important;
+        }
+        .team-name {
+          font-size: 1rem !important;
+        }
+        .team-role {
+          font-size: 0.8rem !important;
+        }
+      }
+
+      /* Main content styles */
+      main {
+        flex-grow: 1;
+        display: flex;
+        margin-top: 10rem;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        text-align: center;
+        padding: 1rem;
+        font-family: "Gabarito", sans-serif;
+      }
+
+      .main-heading {
+        font-family: "Gabarito", sans-serif;
+        font-size: 2.25rem;
+        font-weight: 800;
+        letter-spacing: -0.025em;
+        line-height: 1.1;
+        margin-bottom: 0;
+        color: #4361ee;
+      }
+
+      /* Team section styles */
+      .team-section {
+        max-width: 80rem;
+        width: 100%;
+        padding: 2rem;
+        margin-top: 0;
+      }
+
+      .team-grid {
+        display: grid;
+        grid-template-columns: 1fr;
+        gap: 2rem;
+        margin-top: 0;
+      }
+
+      .team-card {
+        padding: 0;
+        border-radius: 25px;
+        text-align: left;
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+        position: relative;
+        overflow: hidden;
+        border: none;
+        display: flex;
+        flex-direction: column;
+        align-items: stretch;
+        justify-content: flex-end;
+        background: #000;
+        box-shadow: 0 8px 25px rgba(0, 0, 0, 0.2);
+        height: 400px;
+      }
+
+      .team-card:hover {
+        transform: translateY(-8px);
+        box-shadow: 0 15px 35px rgba(0, 0, 0, 0.3);
+      }
+
+      .team-avatar {
+        width: 100%;
+        height: 100%;
+        background-color: #000;
+        position: absolute;
+        top: 0;
+        left: 0;
+        z-index: 1;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 2.5rem;
+        font-weight: 700;
+        color: #6c757d;
+        font-family: "Bricolage Grotesque", sans-serif;
+        overflow: hidden;
+        border-radius: 25px;
+      }
+
+      .team-avatar img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        object-position: center 80%;
+        border-radius: 25px;
+      }
+
+      .team-info {
+        padding: 2rem 1.5rem 1.5rem;
+        position: relative;
+        z-index: 2;
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        justify-content: flex-end;
+        background: linear-gradient(
+          to top,
+          rgba(255, 255, 255, 1) 0%,
+          rgba(255, 255, 255, 1) 30%,
+          rgba(255, 255, 255, 0.8) 50%,
+          rgba(255, 255, 255, 0.4) 70%,
+          rgba(255, 255, 255, 0) 100%
+        );
+        width: 100%;
+        border-radius: 0 0 25px 25px;
+        min-height: 120px;
+      }
+
+      .team-name {
+        font-family: "Bricolage Grotesque", sans-serif;
+        font-size: 1.5rem;
+        font-weight: 700;
+        margin-bottom: 0.5rem;
+        color: #000000;
+        position: relative;
+        z-index: 1;
+      }
+
+      .team-role {
+        color: #4a5568;
+        font-size: 1rem;
+        font-family: "Inter", sans-serif;
+        margin-bottom: 1rem;
+        position: relative;
+        z-index: 1;
+        font-weight: 500;
+      }
+
+      .linkedin-btn {
+        background: rgba(0, 0, 0, 0.8);
+        color: white;
+        border: 1px solid rgba(255, 255, 255, 0.05);
+        padding: 0.8rem 1.8rem;
+        border-radius: 50px;
+        font-size: 0.9rem;
+        font-weight: 600;
+        font-family: "Inter", sans-serif;
+        cursor: pointer;
+        transition: all 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+        display: flex;
+        align-items: center;
+        gap: 0.7rem;
+        text-decoration: none;
+        position: relative;
+        z-index: 1;
+        overflow: hidden;
+        backdrop-filter: blur(20px) saturate(180%);
+        box-shadow: 0 8px 32px rgba(0, 0, 0, 0.5),
+          inset 0 1px 0 rgba(255, 255, 255, 0.05),
+          inset 0 -1px 0 rgba(0, 0, 0, 0.4);
+      }
+
+      .linkedin-btn::before {
+        content: "";
+        position: absolute;
+        top: -50%;
+        left: -50%;
+        width: 200%;
+        height: 200%;
+        background: radial-gradient(
+          circle,
+          rgba(255, 255, 255, 0.3) 0%,
+          transparent 70%
+        );
+        border-radius: 50%;
+        transform: scale(0);
+        transition: transform 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+        z-index: -1;
+      }
+
+      .linkedin-btn::after {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background: linear-gradient(
+          45deg,
+          transparent 30%,
+          rgba(255, 255, 255, 0.2) 50%,
+          transparent 70%
+        );
+        border-radius: 50px;
+        transform: translateX(-100%);
+        transition: transform 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+        z-index: -1;
+      }
+
+      .linkedin-btn:hover {
+        background: rgba(0, 0, 0, 0.95);
+        border-color: rgba(255, 255, 255, 0.1);
+        transform: translateY(-4px) scale(1.05);
+        box-shadow: 0 15px 40px rgba(0, 0, 0, 0.7),
+          inset 0 1px 0 rgba(255, 255, 255, 0.1),
+          inset 0 -1px 0 rgba(0, 0, 0, 0.6);
+        color: white;
+      }
+
+      .linkedin-btn:hover::before {
+        transform: scale(1);
+      }
+
+      .linkedin-btn:hover::after {
+        transform: translateX(100%);
+      }
+
+      .linkedin-btn:active {
+        transform: translateY(-2px) scale(1.02);
+        transition: all 0.2s ease;
+      }
+
+      .linkedin-btn i {
+        font-size: 1.1rem;
+        transition: all 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+        filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.2));
+      }
+
+      .linkedin-btn:hover i {
+        transform: scale(1.2) rotate(10deg);
+        filter: drop-shadow(0 4px 8px rgba(0, 0, 0, 0.3));
+      }
+
+      /* Team Description Styles */
+      .team-description {
+        max-width: 80rem;
+        width: 100%;
+        margin: 2rem auto 3rem;
+        padding: 0 2rem;
+        text-align: center;
+      }
+
+      .team-intro {
+        font-family: "Inter", sans-serif;
+        font-size: 1.125rem;
+        line-height: 1.7;
+        color: #e5e5f5;
+        margin-bottom: 2.5rem;
+        max-width: 800px;
+        margin-left: auto;
+        margin-right: auto;
+      }
+
+      .team-stats {
+        display: flex;
+        justify-content: center;
+        gap: 3rem;
+        flex-wrap: wrap;
+      }
+
+      .stat-item {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 0.5rem;
+        padding: 2rem;
+        background: rgba(255, 255, 255, 0.05);
+        border-radius: 1rem;
+        border: 1px solid rgba(255, 255, 255, 0.1);
+        backdrop-filter: blur(10px);
+        min-width: 280px;
+        width: 320px;
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+      }
+
+      .stat-item:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+      }
+
+      .stat-number {
+        font-family: "Bricolage Grotesque", sans-serif;
+        font-size: 2.5rem;
+        font-weight: 800;
+        color: #4361ee;
+        line-height: 1;
+      }
+
+      .stat-label {
+        font-family: "Inter", sans-serif;
+        font-size: 0.875rem;
+        color: #9ca3af;
+        font-weight: 500;
+        text-align: center;
+      }
+
+      .team-social {
+        display: flex;
+        justify-content: flex-start;
+        gap: 1rem;
+        position: relative;
+        z-index: 1;
+      }
+
+      .social-link {
+        width: 24px;
+        height: 24px;
+        border-radius: 4px;
+        background: transparent;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: #6b7280;
+        text-decoration: none;
+        transition: all 0.3s ease;
+        border: none;
+      }
+
+      .social-link:hover {
+        background: rgba(255, 255, 255, 0.1);
+        transform: translateY(-2px);
+        color: #0077b5;
+      }
+
+      .linkedin-link {
+        background: transparent;
+      }
+
+      .linkedin-link:hover {
+        background: rgba(0, 119, 181, 0.1);
+        color: #0077b5;
+      }
+
+      /* Responsive styles */
+      @media (min-width: 640px) {
+        .logo span {
+          display: block;
+        }
+
+        .main-heading {
+          font-size: 3rem;
+        }
+
+        .team-grid {
+          grid-template-columns: repeat(2, 1fr);
+        }
+      }
+
+      @media (min-width: 768px) {
+        header {
+          padding: 1rem 2rem;
+        }
+
+        .nav-links {
+          display: flex;
+        }
+
+        .main-heading {
+          font-size: 4rem;
+        }
+
+        .team-section {
+          padding: 3rem;
+        }
+
+        .team-grid {
+          grid-template-columns: repeat(2, 1fr);
+          gap: 3rem;
+        }
+      }
+
+      @media (min-width: 1024px) {
+        .main-heading {
+          font-size: 4.5rem;
+        }
+
+        .team-grid {
+          grid-template-columns: repeat(4, 1fr);
+        }
+      }
+
+      @media (min-width: 1280px) {
+        .team-grid {
+          grid-template-columns: repeat(4, 1fr);
+          gap: 2rem;
+        }
+      }
+      header.nav-hidden {
+        transform: translateY(-120%);
+        opacity: 0;
+        pointer-events: none;
+        transition: transform 0.5s cubic-bezier(0.4, 0, 0.2, 1),
+          opacity 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+      }
+      header {
+        transition: transform 0.5s cubic-bezier(0.4, 0, 0.2, 1),
+          opacity 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+      }
+      @media (max-width: 600px) {
+        header {
+          padding: 0.5rem 0.5rem;
+        }
+        nav {
+          flex-direction: row;
+          padding: 0.75rem 1rem;
+          border-radius: 9999px;
+        }
+        /* Compact mobile nav */
+        nav {
+          flex-direction: row;
+          height: 64px;
+          padding: 0.5rem 0.75rem;
+          border-radius: 9999px;
+        }
+        .logo img {
+          width: 24px;
+          height: 24px;
+        }
+        .hamburger {
+          font-size: 1.25rem;
+          padding: 0.4rem;
+          margin-right: 0.5rem;
+        }
+        .contact-btn {
+          font-size: 0.85rem;
+          padding: 0.5rem 1rem;
+        }
+        .nav-dropdown {
+          width: 240px;
+          padding: 0.5rem 0;
+          right: 0.75rem;
+        }
+        .nav-dropdown a {
+          padding: 0.6rem 1rem;
+        }
+        .logo span {
+          font-size: 1rem;
+        }
+        .nav-links {
+          flex-direction: column;
+          gap: 1rem;
+          font-size: 1rem;
+          display: none !important;
+          margin-top: 0.5rem;
+        }
+        .contact-btn {
+          width: auto;
+          padding: 0.75rem 1.5rem;
+          margin-top: 0;
+        }
+        main {
+          margin-top: 4rem;
+          padding: 0.5rem;
+        }
+        .main-heading {
+          font-size: 1.5rem !important;
+        }
+        .team-section {
+          padding: 0.5rem;
+        }
+        .team-grid {
+          grid-template-columns: 1fr !important;
+          gap: 1rem;
+        }
+        .team-card {
+          padding: 0.5rem !important;
+        }
+        .team-avatar {
+          height: 120px !important;
+          font-size: 1.5rem !important;
+        }
+        .team-info {
+          padding: 0.5rem !important;
+        }
+        .team-name {
+          font-size: 1rem !important;
+        }
+        .team-role {
+          font-size: 0.8rem !important;
+        }
+
+        /* Fix mobile overlap with navigation */
+        main {
+          margin-top: 8rem !important;
+        }
+
+        /* Mobile 2-column grid layout */
+        .team-grid {
+          grid-template-columns: repeat(2, 1fr) !important;
+          gap: 0.75rem !important;
+        }
+
+        /* Mobile team description styles */
+        .team-description {
+          padding: 0 1rem;
+          margin: 1.5rem auto 2rem;
+        }
+
+        .team-intro {
+          font-size: 1rem;
+          margin-bottom: 2rem;
+        }
+
+        .team-stats {
+          gap: 1rem;
+        }
+
+        .stat-item {
+          padding: 1.5rem;
+          min-width: 200px;
+          width: 240px;
+        }
+
+        .stat-number {
+          font-size: 2rem;
+        }
+
+        .stat-label {
+          font-size: 0.8rem;
+        }
+      }
+
+      /* Additional responsive styles for team cards */
+      @media (max-width: 768px) {
+        .team-card {
+          height: 400px !important;
+          position: relative !important;
+          overflow: hidden !important;
+        }
+        .team-avatar {
+          position: absolute !important;
+          top: 0 !important;
+          left: 0 !important;
+          width: 100% !important;
+          height: 100% !important;
+        }
+        .team-avatar img {
+          object-position: center 80% !important;
+        }
+        .team-info {
+          position: absolute !important;
+          bottom: 0 !important;
+          left: 0 !important;
+          right: 0 !important;
+          background: linear-gradient(
+            to top,
+            rgba(255, 255, 255, 1) 0%,
+            rgba(255, 255, 255, 1) 30%,
+            rgba(255, 255, 255, 0.8) 50%,
+            rgba(255, 255, 255, 0.4) 70%,
+            rgba(255, 255, 255, 0) 100%
+          ) !important;
+          padding: 2rem 1.5rem 1.5rem !important;
+          min-height: 120px !important;
+          z-index: 2 !important;
+        }
+        .team-name {
+          color: #000000 !important;
+          font-size: 1.5rem !important;
+        }
+        .team-role {
+          font-size: 1rem !important;
+        }
+      }
+
+      @media (max-width: 600px) {
+        .team-card {
+          height: 400px !important;
+          position: relative !important;
+          overflow: hidden !important;
+        }
+        .team-avatar {
+          position: absolute !important;
+          top: 0 !important;
+          left: 0 !important;
+          width: 100% !important;
+          height: 100% !important;
+        }
+        .team-info {
+          position: absolute !important;
+          bottom: 0 !important;
+          left: 0 !important;
+          right: 0 !important;
+          background: linear-gradient(
+            to top,
+            rgba(255, 255, 255, 1) 0%,
+            rgba(255, 255, 255, 1) 30%,
+            rgba(255, 255, 255, 0.8) 50%,
+            rgba(255, 255, 255, 0.4) 70%,
+            rgba(255, 255, 255, 0) 100%
+          ) !important;
+          padding: 2rem 1.5rem 1.5rem !important;
+          min-height: 120px !important;
+          z-index: 2 !important;
+        }
+        .team-name {
+          font-size: 1.5rem !important;
+        }
+        .team-role {
+          font-size: 1rem !important;
+        }
+      }
+
+      /* Footer */
+      .site-footer {
+        width: 100%;
+        margin-top: auto;
+        padding: 0;
+        background: #000000;
+        border-top: 1px solid rgba(255, 255, 255, 0.1);
+      }
+
+      .site-footer .footer-inner {
+        max-width: 80rem;
+        width: calc(100% - 2rem);
+        margin: 0 auto;
+        padding: 1.5rem 2rem;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 2rem;
+      }
+
+      .footer-left {
+        display: flex;
+        align-items: center;
+      }
+
+      .footer-logo {
+        display: flex;
+        align-items: center;
+        gap: 1rem;
+      }
+
+      .logo-circle {
+        width: 40px;
+        height: 40px;
+        background: #ffffff;
+        border-radius: 50%;
+        flex-shrink: 0;
+        overflow: hidden;
+      }
+
+      .logo-circle img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+      }
+
+      .copyright-text {
+        color: #ffffff;
+        font-family: "Inter", sans-serif;
+        font-size: 0.9rem;
+        font-weight: 500;
+        letter-spacing: 0.02em;
+        white-space: nowrap;
+      }
+
+      .footer-center {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex: 1;
+      }
+
+      .footer-nav {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 1.5rem;
+        background: rgba(255, 255, 255, 0.05);
+        backdrop-filter: blur(10px);
+        -webkit-backdrop-filter: blur(10px);
+        border: 1px solid rgba(255, 255, 255, 0.1);
+        border-radius: 0.75rem;
+        padding: 1rem 1.5rem;
+        box-shadow: 0 4px 16px rgba(0, 0, 0, 0.1);
+        min-height: 60px;
+        flex-wrap: wrap;
+      }
+
+      .footer-nav a {
+        color: #ffffff;
+        text-decoration: none;
+        font-family: "Inter", sans-serif;
+        font-size: 0.85rem;
+        font-weight: 500;
+        letter-spacing: 0.05em;
+        text-transform: uppercase;
+        transition: color 0.3s ease;
+        white-space: nowrap;
+        padding: 0.5rem 0.75rem;
+        border-radius: 0.5rem;
+      }
+
+      .footer-nav a:hover {
+        color: #c084fc;
+        background: rgba(192, 132, 252, 0.1);
+      }
+
+      .nav-separator {
+        color: #ffffff;
+        font-size: 0.85rem;
+        font-weight: 300;
+      }
+
+      .footer-right {
+        display: flex;
+        align-items: center;
+      }
+
+      .social-icons {
+        display: flex;
+        align-items: center;
+        gap: 1rem;
+      }
+
+      .social-circle {
+        width: 40px;
+        height: 40px;
+        background: #ffffff;
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        text-decoration: none;
+        color: #000000;
+        font-size: 1.2rem;
+        transition: all 0.3s ease;
+        flex-shrink: 0;
+      }
+
+      .social-circle:hover {
+        transform: scale(1.1);
+        background: #c084fc;
+        color: #ffffff;
+      }
+
+      .social-circle.instagram {
+        position: relative;
+        overflow: hidden;
+      }
+
+      .social-circle.instagram i {
+        position: relative;
+        z-index: 2;
+      }
+
+      .social-circle.linkedin {
+        position: relative;
+        overflow: hidden;
+      }
+
+      .social-circle.linkedin i {
+        position: relative;
+        z-index: 2;
+      }
+
+      /* Footer Responsive */
+      @media (max-width: 768px) {
+        .site-footer .footer-inner {
+          flex-direction: column;
+          gap: 1.5rem;
+          padding: 1.5rem 1rem;
+          text-align: center;
+        }
+
+        .footer-center {
+          order: 2;
+        }
+
+        .footer-left {
+          order: 1;
+        }
+
+        .footer-right {
+          order: 3;
+        }
+
+        .footer-nav {
+          flex-wrap: wrap;
+          justify-content: center;
+          gap: 0.75rem;
+          padding: 0.875rem 1rem;
+          min-height: 50px;
+          width: 100%;
+          max-width: 400px;
+          margin: 0 auto;
+        }
+
+        .footer-nav a {
+          font-size: 0.75rem;
+          padding: 0.375rem 0.5rem;
+        }
+
+        .nav-separator {
+          font-size: 0.75rem;
+        }
+      }
+
+      @media (max-width: 600px) {
+        .site-footer .footer-inner {
+          width: calc(100% - 1rem);
+          padding: 1rem 0.75rem;
+          gap: 1.5rem;
+        }
+
+        .logo-circle,
+        .social-circle {
+          width: 32px;
+          height: 32px;
+        }
+
+        .copyright-text {
+          font-size: 0.8rem;
+        }
+
+        .footer-nav {
+          gap: 0.5rem;
+          padding: 0.75rem 0.875rem;
+          min-height: 45px;
+          max-width: 350px;
+        }
+
+        .footer-nav a {
+          font-size: 0.7rem;
+          padding: 0.25rem 0.375rem;
+        }
+
+        .nav-separator {
+          font-size: 0.7rem;
+        }
+
+        .social-circle {
+          font-size: 1rem;
+        }
+      }
+
+      @media (max-width: 480px) {
+        .site-footer .footer-inner {
+          width: calc(100% - 0.5rem);
+          padding: 0.75rem 0.5rem;
+          gap: 1.25rem;
+        }
+
+        .footer-nav {
+          flex-direction: row;
+          flex-wrap: wrap;
+          gap: 0.375rem;
+          padding: 0.625rem 0.75rem;
+          min-height: 40px;
+          max-width: 300px;
+        }
+
+        .nav-separator {
+          display: none;
+        }
+
+        .footer-nav a {
+          font-size: 0.65rem;
+          padding: 0.25rem 0.375rem;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <!-- Header Section -->
+    <header>
+      <nav>
+        <!-- Logo -->
+        <a href="index.html" class="logo">
+          <img
+            src="IMG/Favicon 1.png"
+            srcset="IMG/Favicon 1.png 32w, IMG/Favicon 1.png 64w"
+            sizes="32px"
+            alt="DSSA Logo"
+          />
+          <span>DSSA</span>
+        </a>
+
+        <button class="hamburger" aria-label="Open menu">
+          <i class="fas fa-bars"></i>
+        </button>
+
+        <!-- Navigation Links -->
+        <div class="nav-links">
+          <div
+            style="display: flex; align-items: center; justify-content: center"
+          >
+            <a href="events.html">Events</a>
+          </div>
+          <div
+            style="display: flex; align-items: center; justify-content: center"
+          >
+            <a href="alumni.html">Alumni</a>
+          </div>
+
+          <!-- Contact Button -->
+          <a href="contact.html"
+            ><button class="contact-btn">Contact Us</button></a
+          >
+        </div>
+
+        <!-- Dropdown Menu -->
+        <div class="nav-dropdown">
+          <a href="index.html">Home</a>
+          <a href="events.html">Events</a>
+          <a href="alumni.html">Alumni</a>
+          <a href="contact.html">Contact Us</a>
+        </div>
+      </nav>
+    </header>
+
+    <div data-barba="wrapper">
+      <div data-barba="container" data-barba-namespace="team">
+        <!-- Main Content -->
+        <main>
+          <h1 class="main-heading">Meet Our Team</h1>
+
+          <!-- Team Description Section -->
+          <div class="team-description">
+            <p class="team-intro">
+              Our dedicated team of passionate individuals works together to
+              create innovative solutions and drive the future of data science
+              and artificial intelligence. Each member brings unique expertise
+              and creativity to our collaborative environment.
+            </p>
+
+            <div class="team-stats">
+              <div class="stat-item">
+                <span class="stat-number">16</span>
+                <span class="stat-label">Team Members</span>
+              </div>
+              <div class="stat-item">
+                <span class="stat-number">2025-2026</span>
+                <span class="stat-label">Academic Year</span>
+              </div>
+              <!-- <div class="stat-item">
+            <span class="stat-number">3</span>
+            <span class="stat-label">Events Completed </span>
+          </div> -->
+            </div>
+          </div>
+        </main>
+
+        <!-- Team Section -->
+        <section class="team-section">
+          <div class="team-grid">
+            <!-- 1. President -->
+            <div class="card-bg team-card">
+              <div class="team-avatar">
+                <img
+                  src="IMG/Team/Rohit K.jpg"
+                  srcset="IMG/Team/Rohit K.jpg 200w, IMG/Team/Rohit K.jpg 400w, IMG/Team/Rohit K.jpg 600w"
+                  sizes="(max-width: 600px) 200px, (max-width: 1200px) 300px, 400px"
+                  alt="Rohit Kumbhar"
+                />
+              </div>
+              <div class="team-info">
+                <h3 class="team-name">Rohit Kumbhar</h3>
+                <p class="team-role">President</p>
+                <a
+                  href="https://www.linkedin.com/in/rohitkumbhar1865/"
+                  target="_blank"
+                  rel="noopener"
+                  class="linkedin-btn"
+                >
+                  <i class="fab fa-linkedin"></i>
+                  Connect
+                </a>
+              </div>
+            </div>
+
+            <!-- 2. Vice President -->
+            <div class="card-bg team-card">
+              <div class="team-avatar">
+                <img src="IMG/Team/Siddhi P.jpg" alt="Siddhi Padalkar" />
+              </div>
+              <div class="team-info">
+                <h3 class="team-name">Siddhi Padalkar</h3>
+                <p class="team-role">Vice President</p>
+                <a
+                  href="https://www.linkedin.com/in/siddhi-padalkar-801b12262"
+                  target="_blank"
+                  rel="noopener"
+                  class="linkedin-btn"
+                >
+                  <i class="fab fa-linkedin"></i>
+                  Connect
+                </a>
+              </div>
+            </div>
+
+            <!-- 3. Secretary -->
+            <div class="card-bg team-card">
+              <div class="team-avatar">
+                <img src="IMG/Team/Shrutika G.jpg" alt="Shrutika Gurasale" />
+              </div>
+              <div class="team-info">
+                <h3 class="team-name">Shrutika Gurasale</h3>
+                <p class="team-role">Secretary</p>
+                <a
+                  href="https://www.linkedin.com/in/shrutika-dattatray-gursale-1b9b37314"
+                  target="_blank"
+                  rel="noopener"
+                  class="linkedin-btn"
+                >
+                  <i class="fab fa-linkedin"></i>
+                  Connect
+                </a>
+              </div>
+            </div>
+
+            <!-- 4. Treasurer -->
+            <div class="card-bg team-card">
+              <div class="team-avatar">
+                <img src="IMG/Team/Somesh S.jpg" alt="Somesh Sharma" />
+              </div>
+              <div class="team-info">
+                <h3 class="team-name">Somesh Sharma</h3>
+                <p class="team-role">Treasurer</p>
+                <a
+                  href="http://www.linkedin.com/in/somesh-sharma-25872831a"
+                  target="_blank"
+                  rel="noopener"
+                  class="linkedin-btn"
+                >
+                  <i class="fab fa-linkedin"></i>
+                  Connect
+                </a>
+              </div>
+            </div>
+            <div class="card-bg team-card">
+              <div class="team-avatar">
+                <img src="IMG/Team/Tejas C.jpg" alt="Tejas" />
+              </div>
+              <div class="team-info">
+                <h3 class="team-name">Tejas Chougule</h3>
+                <p class="team-role">Treasurer</p>
+                <a href="#" class="linkedin-btn">
+                  <i class="fab fa-linkedin"></i>
+                  Connect
+                </a>
+              </div>
+            </div>
+
+            <!-- 5. Data Manager -->
+            <div class="card-bg team-card">
+              <div class="team-avatar">
+                <img src="IMG/Team/Sanjivanee T.jpg" alt="Sanjivanee Todakar" />
+              </div>
+              <div class="team-info">
+                <h3 class="team-name">Sanjivanee Todakar</h3>
+                <p class="team-role">Data Manager</p>
+                <a
+                  href="https://www.linkedin.com/in/sanjivanee-todakar-362823293"
+                  target="_blank"
+                  rel="noopener"
+                  class="linkedin-btn"
+                >
+                  <i class="fab fa-linkedin"></i>
+                  Connect
+                </a>
+              </div>
+            </div>
+            <div class="card-bg team-card">
+              <div class="team-avatar">
+                <img src="IMG/Team/Prajakta P.jpg" alt="Prajakta Patil" />
+              </div>
+              <div class="team-info">
+                <h3 class="team-name">Prajakta Patil</h3>
+                <p class="team-role">Data Manager</p>
+                <a
+                  href="https://www.linkedin.com/in/prajakta-patil-0679a02ab"
+                  class="linkedin-btn"
+                >
+                  <i class="fab fa-linkedin"></i>
+                  Connect
+                </a>
+              </div>
+            </div>
+
+            <!-- 6. Technical Lead -->
+            <div class="card-bg team-card">
+              <div class="team-avatar">
+                <img src="IMG/Team/Prathamesh S.jpg" alt="Prathamesh Salokhe" />
+              </div>
+              <div class="team-info">
+                <h3 class="team-name">Prathamesh Salokhe</h3>
+                <p class="team-role">Technical Lead</p>
+                <a
+                  href="https://www.linkedin.com/in/prathamesh-salokhe-292791293"
+                  target="_blank"
+                  rel="noopener"
+                  class="linkedin-btn"
+                >
+                  <i class="fab fa-linkedin"></i>
+                  Connect
+                </a>
+              </div>
+            </div>
+            <div class="card-bg team-card">
+              <div class="team-avatar">
+                <img src="IMG/Team/Sejal S.jpg" alt="Sejal Sant" />
+              </div>
+              <div class="team-info">
+                <h3 class="team-name">Sejal Sant</h3>
+                <p class="team-role">Technical Lead</p>
+                <a
+                  href="https://www.linkedin.com/in/sejal-sant-690419293/"
+                  target="_blank"
+                  rel="noopener"
+                  class="linkedin-btn"
+                >
+                  <i class="fab fa-linkedin"></i>
+                  Connect
+                </a>
+              </div>
+            </div>
+            <div class="card-bg team-card">
+              <div class="team-avatar">
+                <img src="IMG/Team/Darshan C.jpg" alt="Darshan " />
+              </div>
+              <div class="team-info">
+                <h3 class="team-name">Darshan Chougule</h3>
+                <p class="team-role">Technical Lead</p>
+                <a
+                  href="https://www.linkedin.com/in/darshan-chougule-2128652a6"
+                  target="_blank"
+                  rel="noopener"
+                  class="linkedin-btn"
+                >
+                  <i class="fab fa-linkedin"></i>
+                  Connect
+                </a>
+              </div>
+            </div>
+
+            <!-- 7. Social Media Lead -->
+
+            <div class="card-bg team-card">
+              <div class="team-avatar">
+                <img src="IMG/Team/Harashada S.jpg" alt="Harshada Suhase" />
+              </div>
+              <div class="team-info">
+                <h3 class="team-name">Harshada Suhase</h3>
+                <p class="team-role">Social Media Lead</p>
+                <a
+                  href="https://www.linkedin.com/in/harshada-suhase-0344242a6"
+                  target="_blank"
+                  rel="noopener"
+                  class="linkedin-btn"
+                >
+                  <i class="fab fa-linkedin"></i>
+                  Connect
+                </a>
+              </div>
+            </div>
+
+            <div class="card-bg team-card">
+              <div class="team-avatar">
+                <img src="IMG/Team/Kanal p.jpg" alt="Kanal Pawadi" />
+              </div>
+              <div class="team-info">
+                <h3 class="team-name">Kanal Pawadi</h3>
+                <p class="team-role">Social Media Lead</p>
+                <a
+                  href="https://www.linkedin.com/in/pawadi-kanal-0665472a2/"
+                  target="_blank"
+                  rel="noopener"
+                  class="linkedin-btn"
+                >
+                  <i class="fab fa-linkedin"></i>
+                  Connect
+                </a>
+              </div>
+            </div>
+
+            <!-- 8. Event Lead -->
+
+            <div class="card-bg team-card">
+              <div class="team-avatar">
+                <img src="IMG/Team/Keshav K.jpg" alt="Keshav Kumar" />
+              </div>
+              <div class="team-info">
+                <h3 class="team-name">Keshav Kumar</h3>
+                <p class="team-role">Event Lead</p>
+                <a
+                  href="https://www.linkedin.com/in/kumar-keshav7779"
+                  target="_blank"
+                  rel="noopener"
+                  class="linkedin-btn"
+                >
+                  <i class="fab fa-linkedin"></i>
+                  Connect
+                </a>
+              </div>
+            </div>
+
+            <div class="card-bg team-card">
+              <div class="team-avatar">
+                <img src="IMG/Team/Apurva S.jpg" alt="Apurva Shinde" />
+              </div>
+              <div class="team-info">
+                <h3 class="team-name">Apurva Shinde</h3>
+                <p class="team-role">Event Lead</p>
+                <a
+                  href="https://www.linkedin.com/in/apurva-shinde-6125ba320"
+                  target="_blank"
+                  rel="noopener"
+                  class="linkedin-btn"
+                >
+                  <i class="fab fa-linkedin"></i>
+                  Connect
+                </a>
+              </div>
+            </div>
+
+            <!-- 9. Volunteer Lead -->
+            <div class="card-bg team-card">
+              <div class="team-avatar">
+                <img src="IMG/Team/Siddhi D.jpg" alt="Siddhi Danekar" />
+              </div>
+              <div class="team-info">
+                <h3 class="team-name">Siddhi Danekar</h3>
+                <p class="team-role">Volunteer Lead</p>
+                <a
+                  href="https://www.linkedin.com/in/siddhi-danekar-206544300"
+                  target="_blank"
+                  rel="noopener"
+                  class="linkedin-btn"
+                >
+                  <i class="fab fa-linkedin"></i>
+                  Connect
+                </a>
+              </div>
+            </div>
+            <div class="card-bg team-card">
+              <div class="team-avatar">
+                <img src="IMG/Team/Janavhi N.jpg" alt="Janhavi Nazare" />
+              </div>
+              <div class="team-info">
+                <h3 class="team-name">Janhavi Nazare</h3>
+                <p class="team-role">Volunteer Lead</p>
+                <a
+                  href="https://www.linkedin.com/in/janhavi-nazare-a235442a3"
+                  target="_blank"
+                  rel="noopener"
+                  class="linkedin-btn"
+                >
+                  <i class="fab fa-linkedin"></i>
+                  Connect
+                </a>
+              </div>
+            </div>
+          </div>
+        </section>
+      </div>
+    </div>
+    <footer class="site-footer">
+      <div class="footer-inner">
+        <div class="footer-left">
+          <div class="footer-logo">
+            <a href="index.html">
+              <div class="logo-circle">
+                <img
+                  src="IMG/Favicon 1.png"
+                  srcset="IMG/Favicon 1.png 32w, IMG/Favicon 1.png 64w"
+                  sizes="40px"
+                  alt="DSSA Logo"
+                  width="100%"
+                /></div
+            ></a>
+            <span class="copyright-text">COPYRIGHT ©2025 DSSA CLUB</span>
+          </div>
+        </div>
+
+        <div class="footer-center">
+          <nav class="footer-nav">
+            <a href="index.html">ABOUT</a>
+            <span class="nav-separator">|</span>
+            <a href="events.html">EVENTS</a>
+            <span class="nav-separator">|</span>
+            <a href="alumni.html">ALUMNI</a>
+            <span class="nav-separator">|</span>
+            <a href="contact.html">CONTACT US</a>
+          </nav>
+        </div>
+
+        <div class="footer-right">
+          <div class="social-icons">
+            <a
+              href="https://www.instagram.com/dssa_dkte/"
+              target="_blank"
+              rel="noopener"
+              aria-label="Instagram"
+              class="social-circle instagram"
+            >
+              <i class="fab fa-instagram"></i>
+            </a>
+            <a
+              href="https://www.linkedin.com/company/data-science-student-association/"
+              target="_blank"
+              rel="noopener"
+              aria-label="LinkedIn"
+              class="social-circle linkedin"
+            >
+              <i class="fab fa-linkedin-in"></i>
+            </a>
+          </div>
+        </div>
+      </div>
+    </footer>
+    <script>
+      // Hide nav on scroll down, show on scroll up
+      let lastScrollY = window.scrollY;
+      const header = document.querySelector("header");
+      window.addEventListener("scroll", () => {
+        if (window.scrollY > lastScrollY && window.scrollY > 50) {
+          header.classList.add("nav-hidden");
+        } else {
+          header.classList.remove("nav-hidden");
+        }
+        lastScrollY = window.scrollY;
+      });
+
+      document.addEventListener("DOMContentLoaded", function () {
+        if (window.barba) {
+          barba.init({
+            transitions: [
+              {
+                name: "slide-up",
+                leave(data) {
+                  // Slide up and fade out
+                  return gsap.to(data.current.container, {
+                    opacity: 0,
+                    y: -40,
+                    duration: 0.42,
+                    ease: "power2.in",
+                  });
+                },
+                enter(data) {
+                  // Reset scroll to top
+                  window.scrollTo(0, 0);
+                  // Start new container below, slide up and fade in
+                  gsap.set(data.next.container, { opacity: 0, y: 40 });
+                  return gsap.to(data.next.container, {
+                    opacity: 1,
+                    y: 0,
+                    duration: 0.48,
+                    ease: "power2.out",
+                  });
+                },
+                once(data) {
+                  gsap.fromTo(
+                    data.next.container,
+                    { opacity: 0, y: 40 },
+                    { opacity: 1, y: 0, duration: 0.5, ease: "power2.out" }
+                  );
+                },
+              },
+            ],
+          });
+
+          // Sync <head> (title + styles) on navigation so page-specific CSS applies
+          barba.hooks.beforeEnter((data) => {
+            try {
+              const parser = new DOMParser();
+              const nextDoc = parser.parseFromString(
+                data.next.html || "",
+                "text/html"
+              );
+              if (nextDoc && nextDoc.title) {
+                document.title = nextDoc.title;
+              }
+              document.head
+                .querySelectorAll(
+                  'style[data-barba-head], link[rel="stylesheet"][data-barba-head]'
+                )
+                .forEach((el) => el.remove());
+              const nodesToCopy = nextDoc
+                ? nextDoc.head.querySelectorAll('style, link[rel="stylesheet"]')
+                : [];
+              nodesToCopy.forEach((node) => {
+                const clone = node.cloneNode(true);
+                clone.setAttribute("data-barba-head", "");
+                document.head.appendChild(clone);
+              });
+            } catch (e) {}
+          });
+
+          // Mark that a Barba navigation has started (used to trigger a safe reload after transition)
+          barba.hooks.before(() => {
+            try {
+              sessionStorage.setItem("barbaNavigating", "1");
+            } catch (e) {}
+          });
+
+          // Re-bind any page-specific scripts after Barba swaps the container
+          function initPageScripts() {
+            document.querySelectorAll(".faq-question").forEach((q) => {
+              if (q.dataset.bound === "true") return;
+              q.dataset.bound = "true";
+              q.addEventListener("click", function () {
+                const item = this.parentElement;
+                const allItems = document.querySelectorAll(".faq-item");
+                allItems.forEach((el) => {
+                  if (el !== item) el.classList.remove("open");
+                });
+                item.classList.toggle("open");
+              });
+            });
+          }
+          barba.hooks.afterEnter(() => {
+            initPageScripts();
+            // After the transition completes, perform a one-time hard reload so the page is fully initialized
+            try {
+              if (sessionStorage.getItem("barbaNavigating") === "1") {
+                sessionStorage.removeItem("barbaNavigating");
+                setTimeout(() => {
+                  window.location.reload();
+                }, 700);
+              }
+            } catch (e) {}
+          });
+          barba.hooks.once(() => {
+            initPageScripts();
+          });
+        }
+      });
+
+      // Hamburger dropdown menu
+      const hamburger = document.querySelector(".hamburger");
+      const navDropdown = document.querySelector(".nav-dropdown");
+
+      if (hamburger && navDropdown) {
+        hamburger.addEventListener("click", () => {
+          navDropdown.classList.toggle("open");
+
+          // Toggle hamburger icon
+          const icon = hamburger.querySelector("i");
+          if (icon) {
+            if (navDropdown.classList.contains("open")) {
+              icon.classList.remove("fa-bars");
+              icon.classList.add("fa-times");
+            } else {
+              icon.classList.add("fa-bars");
+              icon.classList.remove("fa-times");
+            }
+          }
+        });
+
+        // Close dropdown when clicking outside
+        document.addEventListener("click", (e) => {
+          if (
+            !hamburger.contains(e.target) &&
+            !navDropdown.contains(e.target)
+          ) {
+            navDropdown.classList.remove("open");
+            const icon = hamburger.querySelector("i");
+            if (icon) {
+              icon.classList.add("fa-bars");
+              icon.classList.remove("fa-times");
+            }
+          }
+        });
+
+        // Close dropdown when clicking on a link
+        navDropdown.querySelectorAll("a").forEach((link) => {
+          link.addEventListener("click", () => {
+            navDropdown.classList.remove("open");
+            const icon = hamburger.querySelector("i");
+            if (icon) {
+              icon.classList.add("fa-bars");
+              icon.classList.remove("fa-times");
+            }
+          });
+        });
+      }
+    </script>
+    <script src="https://unpkg.com/lenis@1.3.8/dist/lenis.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.13.0/dist/gsap.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.13.0/dist/ScrollTrigger.min.js"></script>
+    <script src="https://unpkg.com/split-type"></script>
+    <script src="https://unpkg.com/@barba/core"></script>
+    <script>
+      // Lenis smooth scroll initialization
+      const lenis = new Lenis({
+        lerp: 0.08, // lower = smoother, more inertia
+        smoothWheel: true,
+        smoothTouch: false,
+        gestureOrientation: "vertical",
+        orientation: "vertical",
+        wheelMultiplier: 1,
+        touchMultiplier: 1,
+        autoResize: true,
+        overscroll: true,
+      });
+      function raf(time) {
+        lenis.raf(time);
+        requestAnimationFrame(raf);
+      }
+      requestAnimationFrame(raf);
+    </script>
+  </body>
+</html>

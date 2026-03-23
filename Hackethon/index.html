@@ -1,0 +1,1896 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Prarambha Hackathon</title>
+    <link rel="icon" href="IMG/Favicon 1.png" type="image/x-icon" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=Bricolage+Grotesque:wght@300;400;500;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
+    />
+    <style>
+      /* Design.json alignment: white background, black text, accent gradient, feature cards */
+      :root {
+        --bg: #F0EDEA;
+        --text: #000000;
+        --text-secondary: #666666;
+        --card: #f5f5f5;
+        --light-gray: #e5e5e5;
+        --button: #000000;
+        --button-text: #ffffff;
+        --radius: 12px;
+        --container: 1200px;
+        --header-h: 80px;
+        /* Spacing scale */
+        --space-xs: 8px;
+        --space-sm: 12px;
+        --space-md: 16px;
+        --space-lg: 24px;
+        --space-xl: 32px;
+      }
+      * {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+      }
+      body {
+        font-family: "Inter", system-ui, -apple-system, Segoe UI, Roboto,
+          Helvetica, Arial, sans-serif;
+        color: var(--text);
+        background: var(--bg);
+      }
+      a {
+        color: inherit;
+        text-decoration: none;
+      }
+      .container {
+        width: 100%;
+        max-width: var(--container);
+        margin: 0 auto;
+        padding: 0 16px;
+        overflow: hidden;
+      }
+      .hero {
+        margin: 0;
+        width: 90%;
+        max-width: 100%;
+        min-height: 100vh;
+        padding-left: 0;
+        padding-right: 0;
+        background-image: url("IMG/BG.png");
+        background-size: cover;
+        background-position: center;
+        background-repeat: no-repeat;
+      }
+
+      /* Header */
+      header {
+        position: fixed;
+        top: 0;
+        z-index: 50;
+        width: 100%;
+        padding: 0.75rem 0.5rem;
+        display: flex;
+        justify-content: center;
+        background: none;
+        box-shadow: none;
+      }
+      nav.container {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        width: 100%;
+        padding: 0.5rem 0.75rem;
+        height: 60px;
+        backdrop-filter: blur(24px) saturate(180%);
+        background: rgba(36, 38, 52, 0.4);
+        border-radius: 9999px;
+        box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2), inset 0 1px 4px rgba(255, 255, 255, 0.1);
+        margin: 0.5rem 0;
+        border: 1px solid rgba(255, 255, 255, 0.05);
+        position: relative;
+      }
+      .logo {
+        display: flex;
+        align-items: center;
+        gap: 0.5rem;
+        text-decoration: none;
+        color: inherit;
+        padding: 0.5rem 1rem;
+        border-radius: 0.75rem;
+      }
+      .logo img {
+        border-radius: 50%;
+        width: 32px;
+        height: 32px;
+      }
+      .logo span {
+        font-family: "Bricolage Grotesque", sans-serif;
+        font-size: 1.25rem;
+        font-weight: 700;
+        letter-spacing: -0.025em;
+        color: white;
+      }
+      .nav-links {
+        display: none;
+        gap: 1rem;
+        font-size: 1rem;
+        align-items: center;
+      }
+      .nav-links a {
+        text-decoration: none;
+        color: white;
+        transition: all 0.3s ease;
+        font-family: "Inter", sans-serif;
+        padding: 0.5rem 1rem;
+        border-radius: 0.5rem;
+      }
+      .nav-links a:hover {
+        color: #c084fc;
+      }
+      .contact-btn {
+        background: rgba(22, 24, 40, 0.8);
+        border-radius: 20px;
+        color: white;
+        font-weight: 600;
+        padding: 0.75rem 1.5rem;
+        border: 1px solid rgba(255, 255, 255, 0.2);
+        cursor: pointer;
+        transition: all 0.3s ease;
+        font-family: "Inter", sans-serif;
+        backdrop-filter: blur(8px);
+        font-size: 0.875rem;
+      }
+      .contact-btn:hover {
+        background: rgba(192, 132, 252, 0.18);
+        border-color: rgba(192, 132, 252, 0.5);
+        color: #ffffff;
+        box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1);
+      }
+      .hamburger {
+        display: inline-flex;
+        background: none;
+        border: none;
+        color: #fff;
+        font-size: 1.5rem;
+        cursor: pointer;
+        padding: 0.5rem;
+        border-radius: 8px;
+        transition: all 0.3s ease;
+        margin-left: auto;
+      }
+      .hamburger:hover {
+        background: rgba(192, 132, 252, 0.1);
+        color: #c084fc;
+      }
+      /* Dropdown menu */
+      .nav-dropdown {
+        position: absolute;
+        top: 100%;
+        right: 1rem;
+        width: 280px;
+        background: rgba(22, 24, 40, 0.95);
+        backdrop-filter: blur(24px);
+        border: 1px solid rgba(255, 255, 255, 0.1);
+        border-top: none;
+        border-radius: 0 0 16px 16px;
+        box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+        opacity: 0;
+        visibility: hidden;
+        transform: translateY(-10px);
+        transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        z-index: 1000;
+        padding: 1rem 0;
+      }
+
+      .nav-dropdown.open {
+        opacity: 1;
+        visibility: visible;
+        transform: translateY(0);
+      }
+
+      .nav-dropdown a {
+        display: block;
+        padding: 0.75rem 2rem;
+        color: #e5e5f5;
+        text-decoration: none;
+        font-family: "Inter", sans-serif;
+        font-size: 1rem;
+        transition: all 0.2s ease;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+      }
+
+      .nav-dropdown a:last-child {
+        border-bottom: none;
+      }
+
+      .nav-dropdown a:hover {
+        background: rgba(192, 132, 252, 0.1);
+        color: #c084fc;
+        padding-left: 2.5rem;
+      }
+      
+
+      .btn {
+        display: inline-flex;
+        align-items: center;
+        gap: 10px;
+        padding: 12px 22px;
+        border-radius: 10px;
+        font-weight: 700;
+        border: 1px solid #000;
+      }
+      .btn.primary {
+        background: var(--button);
+        color: var(--button-text);
+        border-color: #000;
+      }
+      .btn.ghost {
+        background: transparent;
+        color: #000;
+        border-color: #00000033;
+      }
+      .btn i {
+        margin-right: 2px;
+      }
+
+      /* Hero (rebuilt) */
+      .hero {
+        width: 100vw;
+        min-height: 100vh;
+        display: flex;
+        align-items: center;
+        overflow: hidden;
+        background-image: url("IMG/BG.png");
+        background-size: cover;
+        background-position: center;
+        background-repeat: no-repeat;
+      }
+      .hero-inner {
+        width: 100%;
+        max-width: var(--container);
+        margin: 0 auto;
+        padding: 0 16px;
+        display: grid;
+        grid-template-columns: 1fr;
+        gap: 20px;
+        align-items: center;
+      }
+
+      /* .hero-content styles are defined via alignment rules below */
+      .hero-media img {
+        display: block;
+        width: 100%;
+        height: auto;
+        object-fit: cover;
+      }
+      /* Increase hero-media size on desktop */
+      @media (min-width: 768px) {
+        .hero-media img {
+          width: 100%;
+          transform: scale(1);
+        }
+      }
+      @media (min-width: 1024px) {
+        .hero-media img {
+            width: 100%;
+          transform: scale(1);
+        }
+      }
+      @media (min-width: 1200px) {
+        .hero-media img {
+          width: 108%;
+          transform: scale(1.08);
+        }
+      }
+      .hero-content { text-align: center; }
+      .eyebrow {
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+        padding: 6px 14px;
+        background-color: #00000014;
+        border-radius: 999px;
+        border: 1px solid var(--light-gray);
+        color: var(--text-secondary);
+        font-weight: 600;
+        font-size: 14px;
+      }
+      .display {
+        font-family: "Inter", system-ui, -apple-system, Segoe UI, Roboto,
+          Helvetica, Arial, sans-serif;
+        font-weight: 900;
+        letter-spacing: -0.02em;
+        line-height: 1.08;
+        font-size: clamp(28px, 4.2vw, 48px);
+        margin: 8px 0 12px;
+      }
+      .tagline {
+        color: var(--text-secondary);
+        font-size: 14px;
+        line-height: 1.5;
+        max-width: 48ch;
+      }
+      .hero-cta {
+        display: flex;
+        gap: 10px;
+        margin-top: 12px;
+        flex-wrap: wrap;
+      }
+      .hero-meta {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        margin-top: 8px;
+        color: #111;
+      }
+      .avatars {
+        display: flex;
+        align-items: center;
+      }
+      .avatars img {
+        width: 28px;
+        height: 28px;
+        border-radius: 50%;
+        border: 2px solid #fff;
+        box-shadow: 0 2px 6px #00000014;
+        margin-left: -8px;
+      }
+      .avatars img:first-child {
+        margin-left: 0;
+      }
+      .hero-small {
+        color: var(--text-secondary);
+        font-size: 14px;
+      }
+
+      /* Stats */
+      .stats {
+        display: grid;
+        grid-template-columns: 1fr;
+        gap: 16px;
+        margin-top: 28px;
+      }
+      .stat {
+        background: var(--card);
+        border: 1px solid var(--light-gray);
+        padding: 20px;
+        border-radius: var(--radius);
+        text-align: center;
+      }
+      .stat .num {
+        font-weight: 900;
+        font-size: clamp(22px, 3.5vw, 32px);
+      }
+      .stat .label {
+        color: var(--text-secondary);
+        font-size: 14px;
+        margin-top: 6px;
+      }
+
+      /* Section */
+      section {
+        padding: 48px 0;
+        border-top: 1px solid var(--light-gray);
+        min-height: 100vh;
+        display: flex;
+        align-items: center;
+        overflow: hidden;
+      }
+      .section-head {
+        text-align: center;
+        margin-bottom: 28px;
+      }
+      .h1 {
+        font-family: "Bricolage Grotesque", "Inter", system-ui, -apple-system, Segoe UI, Roboto,
+          Helvetica, Arial, sans-serif;
+        font-size: clamp(28px, 4.5vw, 40px);
+        font-weight: 800;
+        line-height: 1.2;
+      }
+      .sub {
+        color: var(--text-secondary);
+        margin-top: 8px;
+      }
+
+      /* Cards grid */
+      .grid {
+        display: grid;
+        grid-template-columns: 1fr;
+        gap: 16px;
+      }
+      .card {
+        background: var(--card);
+        border: 1px solid var(--light-gray);
+        border-radius: var(--radius);
+        padding: 22px;
+        display: flex;
+        flex-direction: column;
+        gap: 8px;
+        margin: 8px;
+      }
+      .card i {
+        color: #000;
+        opacity: 0.8;
+      }
+      .card h3 {
+        font-size: 18px;
+      }
+      .card p {
+        color: var(--text-secondary);
+        font-size: 14px;
+      }
+
+      /* Learn mini-cards */
+      .mini-grid {
+        display: grid;
+        grid-template-columns: 1fr;
+        gap: 16px;
+        max-width: 820px;
+        margin: 24px auto 0;
+        overflow: hidden;
+      }
+      .mini {
+        background: #f3f4f6;
+        border: 1px solid var(--light-gray);
+        border-radius: 14px;
+        height: 96px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        gap: 8px;
+        margin: 6px;
+      }
+      .mini .icon {
+        width: 34px;
+        height: 34px;
+        border-radius: 999px;
+        background: #fff;
+        border: 1px solid var(--light-gray);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+      .mini span {
+        font-size: 12px;
+        color: #222;
+        font-weight: 700;
+      }
+
+      /* Problem statement cards */
+      .problem-cards {
+        display: grid;
+        grid-template-columns: 1fr;
+        gap: 24px;
+        margin-top: 32px;
+        overflow: hidden;
+      }
+      @media (min-width: 768px) {
+        .problem-cards { grid-template-columns: repeat(2, 1fr); }
+      }
+      @media (min-width: 1024px) {
+        .problem-cards { grid-template-columns: repeat(3, 1fr); }
+      }
+      .problem-card {
+        background: var(--card);
+        border: 1px solid var(--light-gray);
+        border-radius: 16px;
+        padding: 24px;
+        text-align: center;
+        transition: box-shadow 0.2s ease;
+        margin: 8px;
+      }
+      .problem-card:hover {
+        box-shadow: 0 12px 32px rgba(0, 0, 0, 0.12);
+      }
+      .problem-icon {
+        width: 64px;
+        height: 64px;
+        border-radius: 16px;
+        background: rgba(0, 0, 0, 0.467);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin: 0 auto 16px;
+        color: white;
+        font-size: 24px;
+      }
+      .problem-card h3 {
+        font-family: "Inter", system-ui, -apple-system, Segoe UI, Roboto,
+          Helvetica, Arial, sans-serif;
+        font-weight: 800;
+        font-size: 18px;
+        margin-bottom: 12px;
+        color: var(--text-primary);
+      }
+      .problem-card p {
+        color: var(--text-secondary);
+        line-height: 1.6;
+        font-size: 14px;
+        margin: 0;
+      }
+
+      /* Download section */
+      .download-section {
+        text-align: center;
+        margin-top: 40px;
+      }
+      .download-btn {
+        display: inline-flex;
+        align-items: center;
+        gap: 12px;
+        background: #000000;
+        color: white;
+        padding: 16px 32px;
+        border-radius: 12px;
+        font-weight: 700;
+        font-size: 16px;
+        text-decoration: none;
+        transition: all 0.3s ease;
+        box-shadow: 0 4px 16px rgba(0, 0, 0, 0.15);
+      }
+      .download-btn:hover {
+        background: #a0a0a0;
+        box-shadow: 0 8px 24px rgba(0, 0, 0, 0.2);
+      }
+      .download-btn i {
+        font-size: 18px;
+      }
+
+
+
+      /* Mission */
+      .mission {
+        display: grid;
+        grid-template-columns: 1fr;
+        gap: 24px;
+        align-items: center;
+      }
+      .mission .label {
+        display: flex;
+        align-items: center;
+        gap: 8px;
+        color: #ef4444;
+        font-weight: 700;
+        font-size: 12px;
+      }
+      @media (min-width: 1024px) {
+        .mission { grid-template-columns: 1.1fr 0.9fr; gap: 40px; }
+      }
+      .info-row {
+        display: flex;
+        gap: 16px;
+        margin-top: 18px;
+      }
+      .info {
+        background: #f3f4f6;
+        border: 1px solid var(--light-gray);
+        padding: 16px 18px;
+        border-radius: 14px;
+        min-width: 220px;
+        display: flex;
+        align-items: center;
+        gap: 12px;
+        margin: 8px;
+      }
+      .info .icon {
+        width: 32px;
+        height: 32px;
+        border-radius: 999px;
+        background: #fff;
+        border: 1px solid var(--light-gray);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: #111;
+      }
+      .info .k {
+        color: #666;
+        font-size: 12px;
+      }
+      .info .v {
+        font-size: 26px;
+        font-weight: 900;
+        margin-top: 2px;
+      }
+      .portraits {
+        position: relative;
+        height: 400px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+      .portraits::before {
+        content: "";
+        position: absolute;
+        inset: 20px;
+        background: #f8fafc;
+        border: 1px solid var(--light-gray);
+        border-radius: 16px;
+        box-shadow: 0 20px 50px #0000000d;
+      }
+      
+      .portrait img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        border: 10px solid yellow;
+        border-radius: 16px;
+      }
+      .p1 {
+        transform: none;
+        left: auto;
+        top: auto;
+      }
+
+      /* Sponsors */
+      .sponsors {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 16px;
+      }
+      .sponsor {
+        background: #fff;
+        border: 1px solid var(--light-gray);
+        border-radius: 10px;
+        padding: 14px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: #111;
+        font-weight: 700;
+      }
+
+      /* CTA strip */
+      .actions {
+        display: grid;
+        grid-template-columns: 1fr;
+        gap: 12px;
+        margin-top: 22px;
+      }
+      .actions .btn {
+        justify-content: center;
+      }
+
+      /* Rules grid */
+      .rules-grid {
+        display: grid;
+        grid-template-columns: 1fr;
+        gap: 16px;
+        margin-top: 32px;
+        overflow: hidden;
+      }
+      .rule-card {
+        background: var(--card);
+        border: 1px solid var(--light-gray);
+        border-radius: 16px;
+        padding: 24px;
+        position: relative;
+        text-align: left;
+        margin: 8px;
+      }
+      .rule-card:hover {
+        /* No hover effects */
+      }
+      .rule-number {
+        position: absolute;
+        top: -16px;
+        left: 24px;
+        background: var(--primary);
+        color: white;
+        width: 32px;
+        height: 32px;
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-weight: 900;
+        font-size: 16px;
+      }
+      .rule-card h3 {
+        font-family: "Inter", system-ui, -apple-system, Segoe UI, Roboto,
+          Helvetica, Arial, sans-serif;
+        font-weight: 800;
+        font-size: 18px;
+        margin: 8px 0 16px 0;
+        color: var(--text-primary);
+        text-align: left;
+      }
+      .rule-card ul {
+        list-style: none;
+        padding: 0;
+        margin: 0;
+        text-align: left;
+      }
+      .rule-card li {
+        color: var(--text-secondary);
+        line-height: 1.5;
+        margin-bottom: 8px;
+        padding-left: 20px;
+        position: relative;
+        font-size: 14px;
+        text-align: left;
+      }
+      .rule-card li:before {
+        content: "•";
+        color: var(--primary);
+        font-weight: bold;
+        position: absolute;
+        left: 0;
+      }
+      .rule-card li:last-child {
+        margin-bottom: 0;
+      }
+
+      /* Warning box */
+      .warning-box {
+        background: #fef3c7;
+        border: 1px solid #f59e0b;
+        border-radius: 12px;
+        padding: 16px 20px;
+        margin: 24px 0;
+        display: flex;
+        align-items: center;
+        gap: 12px;
+        color: #92400e;
+      }
+      .warning-box i {
+        color: #f59e0b;
+        font-size: 18px;
+        flex-shrink: 0;
+      }
+      .warning-box strong {
+        font-weight: 700;
+      }
+
+      /* Rules card */
+      .rules-card {
+        background: var(--card);
+        border: 1px solid var(--light-gray);
+        border-radius: 16px;
+        padding: 24px;
+        max-width: var(--container);
+        width: 100%;
+        margin: 0 auto;
+        box-shadow: 0 12px 32px rgba(0, 0, 0, 0.06);
+      }
+      .rules-card h3 {
+        font-family: "Inter", system-ui, -apple-system, Segoe UI, Roboto,
+          Helvetica, Arial, sans-serif;
+        font-weight: 900;
+        letter-spacing: -0.01em;
+        margin-bottom: 12px;
+      }
+      .rules-list {
+        list-style: decimal;
+        padding-left: 1.25rem;
+        display: grid;
+        gap: 14px;
+      }
+      .rules-list > li {
+        font-weight: 700;
+      }
+      .rules-list .sub-list {
+        list-style: disc;
+        padding-left: 1.25rem;
+        margin-top: 6px;
+        color: var(--text-secondary);
+        line-height: 1.7;
+        font-weight: 400;
+      }
+
+      /* Countdown */
+      .countdown {
+        display: flex;
+        gap: 12px;
+        justify-content: center;
+        margin-top: 14px;
+      }
+      .time {
+        min-width: 78px;
+        padding: 12px;
+        border-radius: 12px;
+        background: var(--card);
+        border: 1px solid var(--light-gray);
+        text-align: center;
+      }
+      .time .num {
+        font-weight: 900;
+        font-size: 24px;
+      }
+      .time .label {
+        color: var(--text-secondary);
+        font-size: 12px;
+      }
+
+      /* Responsive hamburger menu */
+      @media (max-width: 991.98px) {
+        .hamburger {
+          display: block;
+        }
+        
+        .nav-links {
+          display: none;
+        }
+      }
+
+      @media (min-width: 992px) {
+        .hamburger {
+          display: none;
+        }
+        
+        .nav-links {
+          display: flex;
+        }
+      }
+
+      @media (max-width: 768px) {
+        nav.container { 
+          flex-direction: row; 
+          height: 64px; 
+          padding: 0.5rem 0.75rem; 
+          border-radius: 9999px; 
+        }
+        
+        .nav-dropdown { 
+          width: 240px; 
+          padding: 0.5rem 0; 
+          right: 0.75rem; 
+        }
+        
+        .nav-dropdown a { 
+          padding: 0.6rem 1rem; 
+        }
+      }
+
+      /* Responsive: scale up at tablet/desktop */
+      /* Mobile spacing normalization */
+      @media (max-width: 767.98px) {
+        .container { padding-left: var(--space-md); padding-right: var(--space-md); }
+        header { padding: var(--space-sm) var(--space-xs); }
+        nav.container { height: 56px; padding: var(--space-sm) var(--space-md); margin: var(--space-xs) 0; }
+        .hero-inner { padding-left: var(--space-md); padding-right: var(--space-md); gap: var(--space-md); }
+        section { padding: var(--space-xl) 0; }
+        .section-head { margin-bottom: var(--space-md); }
+        .grid, .mini-grid, .problem-cards, .rules-grid, .stats, .actions { gap: var(--space-md); }
+        .card, .stat, .rule-card, .problem-card { padding: var(--space-lg); }
+        .download-section { margin-top: var(--space-lg); }
+        .info-row { gap: var(--space-md); margin-top: var(--space-md); }
+        .mission .label { gap: var(--space-xs); }
+        .warning-box { padding: var(--space-md); margin: var(--space-md) 0; gap: var(--space-sm); }
+
+        footer { padding: var(--space-lg) 0 !important; }
+        footer .container { gap: var(--space-md) !important; }
+        /* Two cards per row on mobile for non-rules grids */
+        .grid { grid-template-columns: repeat(2, 1fr); }
+        .mini-grid { grid-template-columns: repeat(2, 1fr); }
+        .problem-cards { grid-template-columns: repeat(2, 1fr); }
+        .stats { grid-template-columns: repeat(2, 1fr); }
+        .sponsors { grid-template-columns: repeat(2, 1fr); }
+        /* Keep rules single column on mobile */
+        .rules-grid { grid-template-columns: 1fr; }
+        /* Mission section compaction */
+        #mission { min-height: auto; padding: var(--space-lg) 0; display: block; }
+        #mission .mission { gap: var(--space-md); }
+        #mission .info { padding: 12px 14px; min-width: 0; }
+        #mission .portrait { margin-top: var(--space-md); }
+        #mission .portrait img { border-width: 6px; }
+        /* Center register button on mobile */
+        .hero-cta { justify-content: center; }
+        /* Center teams joined text on mobile */
+        .hero-meta { justify-content: center; }
+        /* Smaller problem statement descriptions on mobile */
+        .problem-card p { font-size: 12px; line-height: 1.4; }
+        /* Hero heading responsive sizes for mobile */
+        .display span:first-child { font-size: clamp(2.5rem, 8vw, 3.5rem) !important; }
+        .display span:last-child { font-size: clamp(1.5rem, 5vw, 2.5rem) !important; }
+        
+        /* Make note and description stack in column on mobile */
+        .warning-box {
+          flex-direction: column;
+          text-align: center;
+          align-items: center;
+          gap: var(--space-sm);
+        }
+        
+        .warning-box i {
+          margin-bottom: var(--space-xs);
+        }
+        
+        .warning-box strong {
+          display: block;
+          margin-bottom: var(--space-xs);
+        }
+      }
+
+      /* Responsive: scale up at tablet/desktop */
+      @media (min-width: 768px) {
+        nav.container { height: 70px; }
+        .hero-inner { grid-template-columns: 1fr 1fr; text-align: left; }
+        .hero-content { text-align: left; }
+        .mini-grid { grid-template-columns: repeat(2, 1fr); }
+        .stats { grid-template-columns: repeat(2, 1fr); }
+        .grid { grid-template-columns: repeat(2, 1fr); }
+        .sponsors { grid-template-columns: repeat(3, 1fr); }
+        .actions { grid-template-columns: repeat(2, 1fr); }
+        .rules-grid { grid-template-columns: repeat(2, 1fr); }
+      }
+      @media (min-width: 1024px) {
+        nav.container { height: 80px; }
+        .mini-grid { grid-template-columns: repeat(3, 1fr); }
+        .grid { grid-template-columns: repeat(3, 1fr); }
+        .stats { grid-template-columns: repeat(4, 1fr); }
+        .sponsors { grid-template-columns: repeat(6, 1fr); }
+        .actions { grid-template-columns: repeat(4, 1fr); }
+        .rules-grid { grid-template-columns: repeat(4, 1fr); }
+        .nav-links { display: flex; }
+        .hamburger { display: none; }
+      }
+      /* ===== TESTIMONIALS ===== */
+      .testimonials-title {
+        text-align: center;
+        font-family: "Bricolage Grotesque", sans-serif;
+        font-size: 2.25rem;
+        font-weight: 800;
+        margin-bottom: 2rem;
+      }
+
+      .testimonials-grid {
+        display: grid;
+        grid-template-columns: 1fr;
+        gap: 2rem;
+      }
+
+      .testimonial-card {
+        padding: 1.5rem;
+        border-radius: 0.5rem;
+        
+      }
+
+      .testimonial-header {
+        display: flex;
+        align-items: center;
+        gap: 1rem;
+        margin-bottom: 1rem;
+      }
+
+      .testimonial-avatar {
+        border-radius: 50%;
+      }
+
+      .testimonial-name {
+        font-family: "Bricolage Grotesque", sans-serif;
+        font-weight: 700;
+      }
+
+      .testimonial-role {
+        color: #6b7280;
+        font-size: 0.875rem;
+        font-family: "Inter", sans-serif;
+      }
+
+      .testimonial-text {
+        color: #9ca3af;
+        font-size: 0.875rem;
+        font-family: "Inter", sans-serif;
+      }
+
+      /* ===== FOOTER ===== */
+      .site-footer {
+        width: 100%;
+        margin-top: auto;
+      }
+      .site-footer .footer-inner {
+        max-width: 80rem;
+        width: 100%;
+        margin: 0 auto;
+        padding: 1rem 1.25rem;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 1rem;
+        backdrop-filter: blur(24px) saturate(180%);
+        background: rgba(36, 38, 52, 0.4);
+        border-radius: 1rem;
+        border: 1px solid rgba(255, 255, 255, 0.05);
+        box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2), inset 0 1px 4px rgba(255, 255, 255, 0.1);
+      }
+      .footer-brand {
+        display: flex;
+        align-items: center;
+        gap: 0.5rem;
+        text-decoration: none;
+        color: inherit;
+      }
+      .footer-brand img { border-radius: 50%; width: 28px; height: 28px; }
+      .footer-brand span { font-family: "Bricolage Grotesque", sans-serif; font-weight: 700; }
+      .footer-links { display: flex; align-items: center; gap: 1rem; flex-wrap: wrap; }
+      .footer-links a { color: #e5e5f5; text-decoration: none; font-family: "Inter", sans-serif; font-size: 0.95rem; }
+      .footer-links a:hover { color: #c084fc; }
+      .footer-social { display: flex; align-items: center; gap: 0.75rem; }
+      .footer-social a { color: #e5e5f5; font-size: 1.25rem; }
+      .footer-social a:hover { color: #c084fc; }
+      .footer-bottom { max-width: 80rem; margin: 0.5rem auto 2rem; color: #9ca3af; text-align: center; font-size: 0.9rem; font-family: "Inter", sans-serif; }
+      @media (max-width: 768px) {
+        .site-footer .footer-inner { flex-direction: column; align-items: center; gap: 0.75rem; border-radius: 1rem; }
+        .footer-links { justify-content: center; }
+      }
+      @media (max-width: 600px) {
+        .site-footer .footer-inner { width: calc(100% - 1rem); padding: 1rem 0.75rem; gap: 1.5rem; }
+        .footer-bottom { margin: 0.25rem auto 1rem; font-size: 0.85rem; }
+      }
+      @media (max-width: 480px) {
+        .site-footer .footer-inner { width: calc(100% - 0.5rem); padding: 0.75rem 0.5rem; gap: 1.25rem; }
+        .footer-bottom { margin: 0.25rem auto 0.75rem; font-size: 0.8rem; }
+      }
+ 
+      /* ===== SUBTLE MICRO ANIMATIONS ===== */
+      .problem-card {
+        transition: box-shadow 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        overflow: hidden;
+      }
+      
+      .rule-card, .mini {
+        transition: box-shadow 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+      }
+
+      .problem-card:hover, .rule-card:hover, .mini:hover {
+        box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
+      }
+
+      .btn {
+        transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        position: relative;
+        overflow: hidden;
+      }
+
+      .btn::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: -100%;
+        width: 100%;
+        height: 100%;
+        background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.3), transparent);
+        transition: left 0.6s;
+      }
+
+      .btn:hover::before {
+        left: 100%;
+      }
+
+      .btn:hover {
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+      }
+
+      .download-btn {
+        transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        position: relative;
+        overflow: hidden;
+      }
+
+      .download-btn::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: -100%;
+        width: 100%;
+        height: 100%;
+        background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.3), transparent);
+        transition: left 0.6s;
+      }
+
+      .download-btn:hover::before {
+        left: 100%;
+      }
+
+      .download-btn:hover {
+        box-shadow: 0 6px 16px rgba(0, 0, 0, 0.12);
+      }
+
+      .problem-icon {
+        transition: all 0.4s ease;
+      }
+
+      .problem-card:hover .problem-icon {
+        background: rgba(0, 0, 0, 0.6);
+      }
+
+      .mini .icon {
+        transition: all 0.4s ease;
+      }
+
+      .mini:hover .icon {
+        background: #000;
+        color: white;
+      }
+
+      .rule-number {
+        transition: all 0.4s ease;
+      }
+
+      .rule-card:hover .rule-number {
+        /* No transform effect */
+      }
+
+      .info {
+        transition: all 0.3s ease;
+      }
+
+      .info:hover {
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+      }
+
+      .info .icon {
+        transition: all 0.3s ease;
+      }
+
+      .info:hover .icon {
+        background: #000;
+        color: white;
+      }
+
+      .portrait img {
+        transition: all 0.4s ease;
+      }
+
+      .portrait:hover img {
+        border-color: #ffd700;
+      }
+
+      /* Subtle floating animation for hero elements */
+      .hero-media {
+        animation: float 6s ease-in-out infinite;
+      }
+
+      @keyframes float {
+        0%, 100% {
+          transform: translateY(0px);
+        }
+        50% {
+          transform: translateY(-4px);
+        }
+      }
+
+      /* Subtle pulse animation for CTA buttons */
+      .btn.primary {
+        animation: pulse 3s infinite;
+      }
+
+      @keyframes pulse {
+        0% {
+          box-shadow: 0 0 0 0 rgba(0, 0, 0, 0.3);
+        }
+        70% {
+          box-shadow: 0 0 0 4px rgba(0, 0, 0, 0);
+        }
+        100% {
+          box-shadow: 0 0 0 0 rgba(0, 0, 0, 0);
+        }
+      }
+
+      /* ===== CHATGPT OVERLAY ===== */
+    </style>
+  </head>
+  <body>
+    <header>
+      <nav class="container">
+        <a class="logo" href="../index.html">
+          <img
+            src="IMG/Favicon 1.png"
+            alt="Logo"
+            width="32"
+            height="32"
+            style="border-radius: 50%"
+          />
+          <span>PRARAMBHA HACKATHON</span>
+        </a>
+        <button class="hamburger" aria-label="Open menu"><i class="fas fa-bars"></i></button>
+        <div class="nav-links">
+          <a href="#challenges">Problem Statements</a>
+          <a href="https://forms.gle/UUmdscN75u6S3KXg7"><button class="contact-btn">Register</button></a>
+        </div>
+        
+        <!-- Dropdown Menu -->
+        <div class="nav-dropdown">
+          <a href="#challenges">Problem Statements</a>
+          <a href="https://forms.gle/UUmdscN75u6S3KXg7">Register</a>
+          <a href="../index.html">Back to DSSA</a>
+        </div>
+      </nav>
+    </header>
+
+    <section class="hero">
+      <div class="hero-inner">
+        <div class="hero-content">
+          <span class="eyebrow">DSSA </span> 
+          <h1 class="display">
+            <span style="font-weight: 900;">PRARAMBHA</span><br /><span style="font-size: 2.5rem; font-weight: 600;">Code the Beginning,<br> Shape the Future!</span>
+          </h1>
+          <p class="tagline">
+            Join a thriving community, solve real problems, and build projects
+            that matter. Cash prizes, peer collaboration, and real exposure.
+          </p>
+          <br>
+          <div class="hero-meta">
+
+            <span class="hero-small"
+              ><strong>  </strong> Registrations are closed </span
+            >
+          </div>
+         <!-- <div class="hero-cta">
+            <a href="https://forms.gle/UUmdscN75u6S3KXg7" class="btn primary"
+              ><i class="fa-solid fa-arrow-right-long"></i>Register Now</a
+            >
+          </div>--> <br> 
+          <span class="eyebrow"> In Collab with Google AI & IIT Bombay TechFest </span> <br>
+        </div>
+        <div class="hero-media">
+          <img 
+            src="IMG/Group 43045.png" 
+            srcset="IMG/Group 43045.png 400w, IMG/Group 43045.png 800w, IMG/Group 43045.png 1200w"
+            sizes="(max-width: 600px) 100vw, (max-width: 1200px) 80vw, 1000px"
+            alt="Hackathon illustration" 
+          />
+        </div>
+      </div>
+    </section>
+
+    <section id="learn">
+      <div class="container">
+        <div class="section-head">
+          <div class="hero-small" style="color: #ef4444; font-weight: 700">
+            <span
+              style="
+                display: inline-block;
+                width: 6px;
+                height: 6px;
+                background: #ef4444;
+                border-radius: 999px;
+                margin-right: 6px;
+                vertical-align: middle;
+              "
+            ></span>
+            Exciting cash prizes awaits!!
+          </div>
+          <h2 class="h1" style="margin-top: 8px">
+            What You’ll learn through-out Hackathon
+          </h2>
+          <p class="sub">
+            Learn to code, solve real-world problems, collaborate in teams, and
+            create impactful projects in a fast-paced hackathon environment.
+          </p>
+        </div>
+        <div class="mini-grid">
+          <div class="mini">
+            <div class="icon"><i class="fa-solid fa-puzzle-piece"></i></div>
+            <span>Problem Solving</span>
+          </div>
+          <div class="mini">
+            <div class="icon"><i class="fa-solid fa-people-group"></i></div>
+            <span>Teamwork</span>
+          </div>
+          <div class="mini">
+            <div class="icon"><i class="fa-solid fa-comments"></i></div>
+            <span>Communication</span>
+          </div>
+          <div class="mini">
+            <div class="icon"><i class="fa-solid fa-lightbulb"></i></div>
+            <span>Innovation</span>
+          </div>
+          <div class="mini">
+            <div class="icon">
+              <i class="fa-solid fa-person-chalkboard"></i>
+            </div>
+            <span>Presentation</span>
+          </div>
+          <div class="mini">
+            <div class="icon"><i class="fa-solid fa-network-wired"></i></div>
+            <span>Networking</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="mission">
+      <div class="container">
+        <div class="mission">
+          <div>
+            <div class="label">
+              <span
+                style="
+                  display: inline-block;
+                  width: 6px;
+                  height: 6px;
+                  background: #ef4444;
+                  border-radius: 999px;
+                "
+              ></span>
+              Our Mission
+            </div>
+            <h2 class="h1" style="text-align: left; margin-top: 10px">
+              Build Bold Solutions That Matter
+            </h2>
+            <p class="sub" style="text-align: left; margin-top: 12px">
+              Prarambha is a 6‑hour sprint where developers, designers, and
+              domain experts team up to ship working prototypes for real
+              problems.
+            </p>
+            <p class="sub" style="text-align: left">
+              We focus on impact over hype: define a clear user, validate
+              assumptions fast, measure outcomes, and present concise demos
+              judged on usefulness, craft, and execution.
+            </p>
+            <div class="info-row">
+              <div class="info">
+                <div class="icon"><i class="fa-solid fa-calendar"></i></div>
+                <div>
+                  <div class="k">Event Day</div>
+                  <div class="v">30 Aug 2025</div>
+                </div>
+              </div>
+              <div class="info">
+                <div class="icon"><i class="fa-solid fa-clock"></i></div>
+                <div>
+                  <div class="k">Kickoff</div>
+                  <div class="v">9:30 AM</div>
+                </div>
+              </div>
+            </div>
+          </div>
+                    
+            <div class="portrait p1">
+              <img 
+                src="IMG/winn.png" 
+                srcset="IMG/winn.png 200w, IMG/winn.png 400w, IMG/winn.png 600w"
+                sizes="(max-width: 600px) 200px, (max-width: 1200px) 300px, 400px"
+                alt="p1" 
+              />
+            </div>
+      </div>
+    </section>
+
+    <section id="challenges">
+      <div class="container">
+        <div class="section-head">
+          <h2 class="h1">Problem Statements</h2>
+          <p class="sub">
+            Explore real-world challenges across social impact, campus life, emerging technologies, business, and accessibility. Pick a track, brainstorm solutions, and turn your ideas into innovative prototypes.
+          </p>
+        </div>
+        <div class="problem-cards">
+          <div class="problem-card">
+            <div class="problem-icon">
+              <i class="fa-solid fa-heart-pulse"></i>
+            </div>
+            <h3>Health & Medicine</h3>
+            <p>Build solutions for accessible healthcare, medical data management, and health monitoring using Firebase, Gemini API, and Google Fit APIs.</p>
+          </div>
+          <div class="problem-card">
+            <div class="problem-icon">
+              <i class="fa-solid fa-shield-halved"></i>
+            </div>
+            <h3>Safety & Security</h3>
+            <p>Create systems for digital security, accessibility, and protection using Firebase Auth, reCAPTCHA, and Google Cloud APIs.</p>
+          </div>
+          <div class="problem-card">
+            <div class="problem-icon">
+              <i class="fa-solid fa-graduation-cap"></i>
+            </div>
+            <h3>Student Life</h3>
+            <p>Develop tools for campus collaboration, learning support, and student engagement using Google Classroom, Drive, and Gemini APIs.</p>
+          </div>
+          <div class="problem-card">
+            <div class="problem-icon">
+              <i class="fa-solid fa-leaf"></i>
+            </div>
+            <h3>Sustainability</h3>
+            <p>Build solutions for environmental impact, resource management, and community fairness using Google Maps, Firebase, and BigQuery.</p>
+          </div>
+          <div class="problem-card">
+            <div class="problem-icon">
+              <i class="fa-solid fa-rocket"></i>
+            </div>
+            <h3>Future Tech</h3>
+            <p>Explore AI, AR/VR, and machine learning innovations using Gemini API, ARCore, Firebase ML Kit, and Google Colab.</p>
+          </div>
+        </div>
+        <div class="download-section">
+          <a href="IMG/Prarambha.pdf" class="download-btn" download>
+            <i class="fa-solid fa-download"></i>
+            Download Problem Statements PDF
+          </a>
+        </div>
+      </div>
+    </section>
+
+
+
+    <section id="register">
+      <div class="container section-head">
+        <h2 class="h1">Hackathon Guidelines</h2>
+        <p class="sub">
+          Understand the rules, form your team, and prepare to innovate. Your journey starts here.
+        </p>
+        <div class="warning-box">
+         
+          <strong> <i class="fa-solid fa-exclamation-triangle"></i> Note:</strong> Participants are expected to build unique
+          solutions. Submissions copied from GitHub or pre-existing projects
+          will be disqualified.
+        </div>
+        <div class="rules-grid">
+          <div class="rule-card">
+          
+            <h3>Team Formation</h3>
+            <ul>
+              <li>Teams: 2–4 people (solo not allowed)</li>
+              <li>One team per person, one project per team</li>
+              <li>
+                No cross-participation with the same project in multiple
+                hackathons
+              </li>
+            </ul>
+          </div>
+          <div class="rule-card">
+            
+            <h3>Code of Conduct</h3>
+            <ul>
+              <li>Respectful, harassment-free environment</li>
+              <li>No hate speech, abuse, discrimination</li>
+              <li>Everyone (participants, mentors, judges) must follow it</li>
+            </ul>
+          </div>
+          <div class="rule-card">
+            
+            <h3>Project Development</h3>
+            <ul>
+              <li>Must be built during hackathon (no pre-built projects)</li>
+              <li>Allowed: open-source libraries, frameworks, public APIs</li>
+              <li>Clearly separate what you built vs. reused</li>
+              <li>Must align with hackathon theme/tracks</li>
+              <li>No plagiarism or copying others' work</li>
+            </ul>
+          </div>
+          <div class="rule-card">
+            
+            <h3>Tools, Datasets & APIs</h3>
+            <ul>
+              <li>Any programming languages, IDEs, frameworks allowed</li>
+              <li>
+                Public APIs and cloud services usually allowed (with credit)
+              </li>
+              <li>All AI tools allowed for building projects</li>
+              <li>During judging, you must explain your code implementation</li>
+              <li>Illegal/pirated tools = strictly forbidden</li>
+            </ul>
+          </div>
+        </div>
+        
+      </div>
+    </section>
+
+    <footer class="site-footer">
+      <div class="footer-inner">
+        <a href="../index.html" class="footer-brand">
+          <img src="https://placehold.co/40x40/ffffff/000000?text=DSSA" alt="DSSA Logo" />
+          <span>DSSA</span>
+        </a>
+        <nav class="footer-links">
+          <a href="../index.html">Home</a>
+      
+          <a href="../team.html">Team</a>
+          <a href="../contact.html">Contact</a>
+        </nav>
+        <div class="footer-social">
+          <a href="https://www.instagram.com/dssa_dkte/" target="_blank" rel="noopener" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+          <a href="https://www.linkedin.com/company/data-science-student-association/" target="_blank" rel="noopener" aria-label="LinkedIn"><i class="fab fa-linkedin"></i></a>
+        </div>
+      </div>
+      <div class="footer-bottom">© 2025 DSSA. All rights reserved.</div>
+    </footer>
+
+    <!-- GSAP, Lenis, and Barba.js Scripts -->
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.13.0/dist/gsap.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.13.0/dist/ScrollTrigger.min.js"></script>
+    <script src="https://unpkg.com/split-type"></script>
+    <script src="https://unpkg.com/@barba/core"></script>
+    <script src="https://cdn.jsdelivr.net/gh/studio-freight/lenis@1/bundled/lenis.min.js"></script>
+
+    <script>
+      // Initialize Lenis smooth scrolling
+      const lenis = new Lenis({
+        lerp: 0.08, // lower = smoother, more inertia
+        smoothWheel: true,
+        smoothTouch: false,
+        gestureOrientation: 'vertical',
+        orientation: 'vertical',
+        wheelMultiplier: 1,
+        touchMultiplier: 1,
+        autoResize: true,
+        overscroll: true,
+      });
+
+      // Integrate Lenis with GSAP ScrollTrigger
+      lenis.on('scroll', ScrollTrigger.update);
+
+      gsap.ticker.add((time) => {
+        lenis.raf(time * 1000);
+      });
+
+      gsap.ticker.lagSmoothing(0);
+
+      // Enhanced GSAP Hero Animation
+      window.addEventListener('DOMContentLoaded', () => {
+        // Split the main heading into characters for enhanced effect
+        const split = new SplitType('.display', { types: 'chars' });
+        gsap.set(split.chars, { opacity: 0, y: 50 });
+        gsap.to(split.chars, {
+          opacity: 1,
+          y: 0,
+          duration: 1.2,
+          ease: 'power3.out',
+          stagger: {
+            each: 0.05,
+            from: 'start',
+          },
+          onComplete: () => {
+            gsap.to('.eyebrow', {
+              opacity: 1,
+              y: 0,
+              duration: 0.8,
+              ease: 'expo.out',
+            });
+            gsap.to('.tagline', {
+              opacity: 1,
+              y: 0,
+              duration: 0.8,
+              ease: 'expo.out',
+              delay: 0.2,
+            });
+            gsap.to('.hero-cta', {
+              opacity: 1,
+              y: 0,
+              duration: 0.8,
+              ease: 'expo.out',
+              delay: 0.4,
+            });
+            gsap.to('.hero-meta', {
+              opacity: 1,
+              y: 0,
+              duration: 0.8,
+              ease: 'expo.out',
+              delay: 0.6,
+            });
+          },
+        });
+        
+        gsap.set('.eyebrow', { opacity: 0, y: 30 });
+        gsap.set('.tagline', { opacity: 0, y: 30 });
+        gsap.set('.hero-cta', { opacity: 0, y: 30 });
+        gsap.set('.hero-meta', { opacity: 0, y: 30 });
+        
+        gsap.from('.hero-media', {
+          opacity: 0,
+          x: 80,
+          duration: 1.2,
+          ease: 'power2.out',
+          delay: 0.5,
+        });
+      });
+
+      // Enhanced Card Animations
+      function animateCards() {
+        const problemCards = document.querySelectorAll('.problem-card');
+        const ruleCards = document.querySelectorAll('.rule-card');
+        const miniCards = document.querySelectorAll('.mini');
+        const allCards = [...problemCards, ...ruleCards, ...miniCards];
+        
+        allCards.forEach((card, i) => {
+          const fromLeft = i % 2 === 0;
+          gsap.set(card, {
+            opacity: 0,
+            x: fromLeft ? -40 : 40,
+            y: 30,
+            rotateY: fromLeft ? 8 : -8,
+          });
+        });
+        
+        const observer = new IntersectionObserver((entries) => {
+          entries.forEach(entry => {
+            if (entry.isIntersecting) {
+              const card = entry.target;
+              const idx = allCards.indexOf(card);
+              const fromLeft = idx % 2 === 0;
+              gsap.to(card, {
+                opacity: 1,
+                x: 0,
+                y: 0,
+                rotateY: 0,
+                duration: 1.0,
+                ease: 'expo.out',
+                overwrite: 'auto',
+                delay: 0.1 * idx,
+              });
+              observer.unobserve(card);
+            }
+          });
+        }, { threshold: 0.15 });
+        
+        allCards.forEach(card => observer.observe(card));
+        
+        // Enhanced parallax effect on scroll
+        window.addEventListener('scroll', () => {
+          allCards.forEach((card, i) => {
+            if (!card.getBoundingClientRect) return;
+            const rect = card.getBoundingClientRect();
+            const winH = window.innerHeight;
+            if (rect.top < winH && rect.bottom > 0) {
+              const center = rect.top + rect.height/2 - winH/2;
+              const rotate = Math.max(-5, Math.min(5, center / winH * 8));
+              gsap.to(card, {
+                rotateY: rotate,
+                duration: 0.3,
+                overwrite: 'auto',
+                ease: 'power1.out',
+              });
+            }
+          });
+        });
+      }
+
+      // Enhanced Section Animations
+      function animateSections() {
+        const sections = document.querySelectorAll('section');
+        sections.forEach((section, i) => {
+          gsap.from(section, {
+            opacity: 0,
+            y: 60,
+            duration: 1.2,
+            ease: 'power2.out',
+            scrollTrigger: {
+              trigger: section,
+              start: 'top 80%',
+              end: 'bottom 20%',
+              toggleActions: 'play none none reverse',
+            }
+          });
+        });
+      }
+
+      // Stats Counter Animation
+      function animateStats() {
+        const stats = document.querySelectorAll('.stat .num');
+        stats.forEach(stat => {
+          const finalValue = parseInt(stat.textContent);
+          gsap.from(stat, {
+            textContent: 0,
+            duration: 2.5,
+            ease: 'power2.out',
+            scrollTrigger: {
+              trigger: stat,
+              start: 'top 80%',
+            },
+            onUpdate: function() {
+              stat.textContent = Math.ceil(stat.textContent);
+            }
+          });
+        });
+      }
+
+      // No hover animations - cards stay static
+
+      // Initialize all animations
+      window.addEventListener('DOMContentLoaded', () => {
+        animateCards();
+        animateSections();
+        animateStats();
+      });
+
+      // Barba.js Page Transitions
+      document.addEventListener('DOMContentLoaded', function() {
+        if (window.barba) {
+          barba.init({
+            transitions: [
+              {
+                name: 'slide-up',
+                leave(data) {
+                  return gsap.to(data.current.container, {
+                    opacity: 0,
+                    y: -40,
+                    duration: 0.42,
+                    ease: 'power2.in',
+                  });
+                },
+                enter(data) {
+                  window.scrollTo(0, 0);
+                  gsap.set(data.next.container, { opacity: 0, y: 40 });
+                  return gsap.to(data.next.container, {
+                    opacity: 1,
+                    y: 0,
+                    duration: 0.48,
+                    ease: 'power2.out',
+                  });
+                },
+                once(data) {
+                  gsap.fromTo(data.next.container, 
+                    { opacity: 0, y: 40 }, 
+                    { opacity: 1, y: 0, duration: 0.5, ease: 'power2.out' }
+                  );
+                }
+              }
+            ]
+          });
+
+          // Sync head content on navigation
+          barba.hooks.beforeEnter((data) => {
+            try {
+              const parser = new DOMParser();
+              const nextDoc = parser.parseFromString(data.next.html || '', 'text/html');
+              if (nextDoc && nextDoc.title) {
+                document.title = nextDoc.title;
+              }
+              document.head.querySelectorAll('style[data-barba-head], link[rel="stylesheet"][data-barba-head]').forEach((el) => el.remove());
+              const nodesToCopy = nextDoc ? nextDoc.head.querySelectorAll('style, link[rel="stylesheet"]') : [];
+              nodesToCopy.forEach((node) => {
+                const clone = node.cloneNode(true);
+                clone.setAttribute('data-barba-head', '');
+                document.head.appendChild(clone);
+              });
+            } catch (e) {}
+          });
+
+          barba.hooks.before(() => {
+            try { sessionStorage.setItem('barbaNavigating', '1'); } catch (e) {}
+          });
+
+          barba.hooks.afterEnter(() => {
+            animateCards();
+            animateSections();
+            animateStats();
+            
+            try {
+              if (sessionStorage.getItem('barbaNavigating') === '1') {
+                sessionStorage.removeItem('barbaNavigating');
+                setTimeout(() => { window.location.reload(); }, 700);
+              }
+            } catch (e) {}
+          });
+
+          barba.hooks.once(() => {
+            animateCards();
+            animateSections();
+            animateStats();
+            addHoverAnimations();
+          });
+        }
+      });
+
+      // Hamburger dropdown menu
+      const hamburger = document.querySelector('.hamburger');
+      const navDropdown = document.querySelector('.nav-dropdown');
+      
+      if (hamburger && navDropdown) {
+        hamburger.addEventListener('click', () => {
+          navDropdown.classList.toggle('open');
+          
+          // Toggle hamburger icon
+          const icon = hamburger.querySelector('i');
+          if (icon) {
+            if (navDropdown.classList.contains('open')) {
+              icon.classList.remove('fa-bars');
+              icon.classList.add('fa-times');
+            } else {
+              icon.classList.add('fa-bars');
+              icon.classList.remove('fa-times');
+            }
+          }
+        });
+        
+        // Close dropdown when clicking outside
+        document.addEventListener('click', (e) => {
+          if (!hamburger.contains(e.target) && !navDropdown.contains(e.target)) {
+            navDropdown.classList.remove('open');
+            const icon = hamburger.querySelector('i');
+            if (icon) {
+              icon.classList.add('fa-bars');
+              icon.classList.remove('fa-times');
+            }
+          }
+        });
+        
+        // Close dropdown when clicking on a link
+        navDropdown.querySelectorAll('a').forEach(link => {
+          link.addEventListener('click', () => {
+            navDropdown.classList.remove('open');
+            const icon = hamburger.querySelector('i');
+            if (icon) {
+              icon.classList.add('fa-bars');
+              icon.classList.remove('fa-times');
+            }
+          });
+        });
+      }
+      // Countdown to a date 30 days from now by default
+      (function () {
+        const target = new Date();
+        target.setDate(target.getDate() + 30);
+        function pad(n) {
+          return (n < 10 ? "0" : "") + n;
+        }
+        function tick() {
+          const now = new Date();
+          const diff = Math.max(0, target - now);
+          const d = Math.floor(diff / (1000 * 60 * 60 * 24));
+          const h = Math.floor((diff / (1000 * 60 * 60)) % 24);
+          const m = Math.floor((diff / (1000 * 60)) % 60);
+          const s = Math.floor((diff / 1000) % 60);
+          const el = (id) => document.getElementById(id);
+          if (el("d")) el("d").textContent = pad(d);
+          if (el("h")) el("h").textContent = pad(h);
+          if (el("m")) el("m").textContent = pad(m);
+          if (el("s")) el("s").textContent = pad(s);
+        }
+        tick();
+        setInterval(tick, 1000);
+      })();
+      // Simple teams counter: starts from 5, shows current progress
+      (function () {
+        var EL_ID = 'teamsCount';
+        var BASE = 5; // start from 5
+        var TARGET_DATE = new Date('2025-08-28T23:59:59'); // August 28th, 2025
+        var TARGET_COUNT = 25; // target 25 teams by August 28th
+
+        var el = document.getElementById(EL_ID);
+        if (!el) return;
+
+        // Calculate current teams based on time progress
+        function calculateCurrentTeams() {
+          var now = Date.now();
+          var startDate = new Date('2024-12-01T00:00:00'); // Start date
+          var totalTime = TARGET_DATE.getTime() - startDate.getTime();
+          var elapsedTime = now - startDate.getTime();
+          var progress = Math.max(0, Math.min(1, elapsedTime / totalTime));
+          
+          // Smooth progression from BASE to TARGET_COUNT
+          var currentTeams = Math.floor(BASE + (TARGET_COUNT - BASE) * progress);
+          return Math.min(TARGET_COUNT, Math.max(BASE, currentTeams));
+        }
+
+        // Animate counter from 0 to current value
+        function animateCounter(targetValue, duration = 2000) {
+          const startValue = 0;
+          const startTime = performance.now();
+          
+          function updateCounter(currentTime) {
+            const elapsed = currentTime - startTime;
+            const progress = Math.min(1, elapsed / duration);
+            
+            // Easing function for smooth animation
+            const easeOutQuart = 1 - Math.pow(1 - progress, 4);
+            const currentValue = Math.floor(startValue + (targetValue - startValue) * easeOutQuart);
+            
+            el.textContent = String(currentValue);
+            
+            if (progress < 1) {
+              requestAnimationFrame(updateCounter);
+            }
+          }
+          
+          requestAnimationFrame(updateCounter);
+        }
+        
+        // Get current teams and animate
+        var currentTeams = calculateCurrentTeams();
+        animateCounter(currentTeams);
+      })();
+    </script>
+  </body>
+</html>

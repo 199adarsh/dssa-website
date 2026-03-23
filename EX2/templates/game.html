@@ -1,0 +1,407 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>AI Image Translator - DSSA Word-to-Image Challenge</title>
+
+    <!-- Font Links -->
+    <link rel="icon" href="IMG/Favicon 1.png" type="image/x-icon" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Gabarito:wght@400;500;600;700;800;900&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@200;300;400;500;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+
+    <!-- Font Awesome -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    />
+
+    <!-- Firebase SDK -->
+    <script src="https://www.gstatic.com/firebasejs/9.22.0/firebase-app-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.22.0/firebase-auth-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.22.0/firebase-firestore-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.22.0/firebase-analytics-compat.js"></script>
+
+    <!-- Firebase Configuration -->
+    <script src="{{ url_for('static', filename='firebase-config-inline.js') }}"></script>
+
+    <link
+      rel="stylesheet"
+      href="{{ url_for('static', filename='game.css') }}"
+    />
+  </head>
+  <body>
+    <!-- Header Section (inherited from index.html) -->
+    <header>
+      <nav>
+        <a href="/" class="logo">
+          <span>DSSA</span>
+        </a>
+
+        <button class="hamburger" aria-label="Open menu">
+          <i class="fas fa-bars"></i>
+        </button>
+
+        <div class="nav-links">
+          <div><a href="https://dssa-dkte.netlify.app/events">Events</a></div>
+          <div><a href="https://dssa-dkte.netlify.app/team">Team</a></div>
+          <div><a href="https://dssa-dkte.netlify.app/alumni">Alumni</a></div>
+          <a href="https://dssa-dkte.netlify.app/contact.html"
+            ><button class="contact-btn">Contact Us</button></a
+          >
+        </div>
+      </nav>
+
+      <!-- Dropdown Menu -->
+      <div class="nav-dropdown">
+        <a href="https://dssa-dkte.netlify.app/events">Events</a>
+        <a href="https://dssa-dkte.netlify.app/team">Team</a>
+        <a href="https://dssa-dkte.netlify.app/alumni">Alumni</a>
+        <a href="https://dssa-dkte.netlify.app/contact.html">Contact Us</a>
+      </div>
+    </header>
+
+    <!-- Main Game Container -->
+    <main class="game-main">
+      <!-- Authentication Section -->
+      <div id="auth-section" class="auth-container">
+        <div class="auth-card">
+          <h2 class="auth-title">AI Image Translator</h2>
+          <p class="auth-subtitle">
+            DSSA Word-to-Image Challenge - Guess the word from emoji clues!
+          </p>
+          <button id="google-signin-btn" class="google-signin-btn">
+            <i class="fab fa-google"></i>
+            Sign in with Google
+          </button>
+          <div class="auth-divider">
+            <span>or</span>
+          </div>
+          <button
+            id="view-leaderboard-guest-btn"
+            class="view-leaderboard-guest-btn"
+          >
+            <i class="fas fa-trophy"></i>
+            View Leaderboard
+          </button>
+        </div>
+      </div>
+
+      <!-- Level Selection Section -->
+      <div id="level-section" class="level-container" style="display: none">
+        <div class="level-card">
+          <h2 class="level-title">AI Image Translator</h2>
+          <p class="level-subtitle">
+            DSSA Word-to-Image Challenge - Guess the word from emoji clues!
+          </p>
+          <div class="level-options">
+            <div class="level-option" data-level="emoji">
+              <div class="level-icon">🎯</div>
+              <h3 class="level-name">Emoji Challenge</h3>
+              <p class="level-description">Guess the word from emoji clues</p>
+              <ul class="level-features">
+                <li>10 emoji puzzles</li>
+                <li>15 seconds per question</li>
+                <li>Speed bonuses available</li>
+                <li>Tech & AI focused words</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Game Section -->
+      <div id="game-section" class="game-container" style="display: none">
+        <!-- Game Header -->
+        <div class="game-header">
+          <div class="player-info">
+            <img
+              id="player-avatar"
+              src=""
+              alt="Player Avatar"
+              class="player-avatar"
+            />
+            <div class="player-details">
+              <span id="player-name" class="player-name"></span>
+              <div class="player-level" id="player-level">
+                <span class="level-badge" id="level-badge">🌱 Novice</span>
+              </div>
+            </div>
+          </div>
+          <div class="game-stats">
+            <span id="player-score" class="score-display">Score: 0</span>
+            <span id="player-status" class="status-indicator">
+              <span class="status-icon">🔴</span>
+              <span class="status-text">Guessing</span>
+            </span>
+            <button id="sign-out-btn" class="sign-out-btn" title="Sign Out">
+              <i class="fas fa-sign-out-alt"></i>
+            </button>
+          </div>
+        </div>
+
+        <!-- Game Area -->
+        <div id="game-area" class="game-area">
+          <!-- Question Display -->
+          <div id="question" class="question-display">
+            <div class="question-header">
+              <span id="question-number" class="question-number"
+                >Question 1 of 10</span
+              >
+              <span id="countdown" class="timer-display">15</span>
+            </div>
+            <div id="question-content" class="question-content">
+              <!-- Emoji clues will be inserted here -->
+            </div>
+          </div>
+
+          <!-- Answer Input Section -->
+          <div class="answer-section">
+            <input
+              type="text"
+              id="answer-box"
+              class="answer-input"
+              placeholder="Type your answer here..."
+              autocomplete="off"
+              maxlength="100"
+            />
+            <div class="answer-actions">
+              <button id="hint-btn" class="hint-btn">
+                <i class="fas fa-lightbulb"></i>
+                Hint (<span id="hint-count">3</span>)
+              </button>
+              <button id="submit-btn" class="submit-btn">Submit Answer</button>
+            </div>
+          </div>
+
+          <!-- Feedback Display -->
+          <div id="feedback" class="feedback-area" style="display: none">
+            <!-- Feedback content will be inserted here -->
+          </div>
+
+          <!-- Progress Bar -->
+          <div class="progress-container">
+            <div class="progress-bar">
+              <div id="progress-fill" class="progress-fill"></div>
+            </div>
+            <span id="progress-text" class="progress-text">0/10</span>
+          </div>
+        </div>
+
+        <!-- Leaderboard Panel -->
+        <div id="leaderboard" class="leaderboard">
+          <h3 class="leaderboard-title">
+            <i class="fas fa-trophy"></i>
+            Live Leaderboard
+          </h3>
+          <div id="leaderboard-list" class="leaderboard-list">
+            <!-- Leaderboard entries will be inserted here -->
+          </div>
+        </div>
+      </div>
+
+      <!-- Game Over Modal -->
+      <div id="game-over-modal" class="modal-overlay" style="display: none">
+        <div class="modal-content">
+          <h2 class="modal-title">Game Over!</h2>
+          <div class="final-stats">
+            <div class="stat-item">
+              <span class="stat-label">Final Score:</span>
+              <span id="final-score" class="stat-value">0</span>
+            </div>
+            <div class="stat-item">
+              <span class="stat-label">Correct Answers:</span>
+              <span id="correct-answers" class="stat-value">0/10</span>
+            </div>
+            <div class="stat-item">
+              <span class="stat-label">Rank:</span>
+              <span id="final-rank" class="stat-value">#1</span>
+            </div>
+          </div>
+          <div class="modal-actions">
+            <button id="play-again-btn" class="play-again-btn">
+              Play Again
+            </button>
+            <button id="view-leaderboard-btn" class="view-leaderboard-btn">
+              View Leaderboard
+            </button>
+          </div>
+        </div>
+      </div>
+    </main>
+
+    <!-- Footer (inherited from index.html) -->
+    <footer class="site-footer">
+      <div class="footer-inner">
+        <div class="footer-left">
+          <div class="footer-logo">
+            <a href="/">
+              <div class="logo-circle">
+                <span>DSSA</span>
+              </div>
+            </a>
+            <span class="copyright-text">COPYRIGHT ©2025 DSSA CLUB</span>
+          </div>
+        </div>
+
+        <div class="footer-center">
+          <nav class="footer-nav">
+            <a href="https://dssa-dkte.netlify.app/events">EVENTS</a>
+            <span class="nav-separator">|</span>
+            <a href="https://dssa-dkte.netlify.app/alumni">ALUMNI</a>
+            <span class="nav-separator">|</span>
+            <a href="https://dssa-dkte.netlify.app/team">TEAM</a>
+            <span class="nav-separator">|</span>
+            <a href="https://dssa-dkte.netlify.app/contact.html">CONTACT US</a>
+          </nav>
+        </div>
+
+        <div class="footer-right">
+          <div class="social-icons">
+            <a
+              href="https://www.instagram.com/dssa_dkte/"
+              target="_blank"
+              rel="noopener"
+              aria-label="Instagram"
+              class="social-circle instagram"
+            >
+              <i class="fab fa-instagram"></i>
+            </a>
+            <a
+              href="https://www.linkedin.com/company/data-science-student-association/"
+              target="_blank"
+              rel="noopener"
+              aria-label="LinkedIn"
+              class="social-circle linkedin"
+            >
+              <i class="fab fa-linkedin-in"></i>
+            </a>
+          </div>
+        </div>
+      </div>
+    </footer>
+
+    <!-- Preload questions data for instant loading -->
+    <script>
+      // Preload questions data to avoid API calls
+      window.preloadedQuestions = [
+        {
+          id: 1,
+          question: "What does HTML stand for?",
+          answer: "HyperText Markup Language",
+          hints: [
+            "It's a markup language for web pages",
+            "Starts with 'Hyper' and ends with 'Language'",
+            "Used to structure content on the web",
+          ],
+        },
+        {
+          id: 2,
+          question:
+            "Which programming language is known as the 'language of the web'?",
+          answer: "JavaScript",
+          hints: [
+            "It runs in web browsers",
+            "Not to be confused with Java",
+            "Used for interactive web pages",
+          ],
+        },
+        {
+          id: 3,
+          question: "What does CSS stand for?",
+          answer: "Cascading Style Sheets",
+          hints: [
+            "It styles web pages",
+            "Controls the appearance and layout",
+            "Works alongside HTML",
+          ],
+        },
+        {
+          id: 4,
+          question: "Which database is commonly used with web applications?",
+          answer: "MySQL",
+          hints: [
+            "It's a relational database",
+            "Open source and widely used",
+            "Starts with 'My' and ends with 'SQL'",
+          ],
+        },
+        {
+          id: 5,
+          question: "What does API stand for?",
+          answer: "Application Programming Interface",
+          hints: [
+            "It allows different software to communicate",
+            "A set of protocols and tools",
+            "Starts with 'Application' and ends with 'Interface'",
+          ],
+        },
+        {
+          id: 6,
+          question:
+            "Which framework is used for building user interfaces in React?",
+          answer: "React",
+          hints: [
+            "It's a JavaScript library",
+            "Created by Facebook",
+            "Uses components and JSX",
+          ],
+        },
+        {
+          id: 7,
+          question: "What does SQL stand for?",
+          answer: "Structured Query Language",
+          hints: [
+            "Used to manage databases",
+            "Allows you to query and manipulate data",
+            "Starts with 'Structured' and ends with 'Language'",
+          ],
+        },
+        {
+          id: 8,
+          question: "Which protocol is used for secure web communication?",
+          answer: "HTTPS",
+          hints: [
+            "It's an extension of HTTP",
+            "Provides encryption and security",
+            "Starts with 'HTTP' and ends with 'S'",
+          ],
+        },
+        {
+          id: 9,
+          question: "What does JSON stand for?",
+          answer: "JavaScript Object Notation",
+          hints: [
+            "It's a data format",
+            "Lightweight and easy to read",
+            "Starts with 'JavaScript' and ends with 'Notation'",
+          ],
+        },
+        {
+          id: 10,
+          question: "Which version control system is most popular?",
+          answer: "Git",
+          hints: [
+            "Created by Linus Torvalds",
+            "Distributed version control",
+            "Three letters, starts with 'G'",
+          ],
+        },
+      ];
+    </script>
+
+    <script src="{{ url_for('static', filename='game.js') }}"></script>
+  </body>
+</html>

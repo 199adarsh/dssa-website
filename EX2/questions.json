@@ -1,0 +1,267 @@
+{
+  "questions": [
+    {
+      "id": 1,
+      "question": "What does HTML stand for?",
+      "answer": "HyperText Markup Language",
+      "hints": [
+        "It's a markup language for web pages",
+        "Starts with 'Hyper' and ends with 'Language'",
+        "Used to structure content on the web"
+      ],
+      "category": "Web Development",
+      "difficulty": "Easy"
+    },
+    {
+      "id": 2,
+      "question": "Which programming language is known as the 'language of the web'?",
+      "answer": "JavaScript",
+      "hints": [
+        "It runs in web browsers",
+        "Not to be confused with Java",
+        "Used for interactive web pages"
+      ],
+      "category": "Programming",
+      "difficulty": "Easy"
+    },
+    {
+      "id": 3,
+      "question": "What does CSS stand for?",
+      "answer": "Cascading Style Sheets",
+      "hints": [
+        "It styles web pages",
+        "Controls the appearance and layout",
+        "Works alongside HTML"
+      ],
+      "category": "Web Development",
+      "difficulty": "Easy"
+    },
+    {
+      "id": 4,
+      "question": "Which database is commonly used with web applications?",
+      "answer": "MySQL",
+      "hints": [
+        "It's a relational database",
+        "Open source and widely used",
+        "Starts with 'My' and ends with 'SQL'"
+      ],
+      "category": "Database",
+      "difficulty": "Easy"
+    },
+    {
+      "id": 5,
+      "question": "What does API stand for?",
+      "answer": "Application Programming Interface",
+      "hints": [
+        "It allows different software to communicate",
+        "A set of protocols and tools",
+        "Starts with 'Application' and ends with 'Interface'"
+      ],
+      "category": "Software Development",
+      "difficulty": "Medium"
+    },
+    {
+      "id": 6,
+      "question": "Which framework is used for building user interfaces in React?",
+      "answer": "React",
+      "hints": [
+        "It's a JavaScript library",
+        "Created by Facebook",
+        "Uses components and JSX"
+      ],
+      "category": "Web Development",
+      "difficulty": "Medium"
+    },
+    {
+      "id": 7,
+      "question": "What does SQL stand for?",
+      "answer": "Structured Query Language",
+      "hints": [
+        "Used to manage databases",
+        "Allows you to query and manipulate data",
+        "Starts with 'Structured' and ends with 'Language'"
+      ],
+      "category": "Database",
+      "difficulty": "Easy"
+    },
+    {
+      "id": 8,
+      "question": "Which protocol is used for secure web communication?",
+      "answer": "HTTPS",
+      "hints": [
+        "It's an extension of HTTP",
+        "Provides encryption and security",
+        "Starts with 'HTTP' and ends with 'S'"
+      ],
+      "category": "Web Security",
+      "difficulty": "Easy"
+    },
+    {
+      "id": 9,
+      "question": "What does JSON stand for?",
+      "answer": "JavaScript Object Notation",
+      "hints": [
+        "It's a data format",
+        "Lightweight and easy to read",
+        "Starts with 'JavaScript' and ends with 'Notation'"
+      ],
+      "category": "Data Format",
+      "difficulty": "Easy"
+    },
+    {
+      "id": 10,
+      "question": "Which version control system is most popular?",
+      "answer": "Git",
+      "hints": [
+        "Created by Linus Torvalds",
+        "Distributed version control",
+        "Three letters, starts with 'G'"
+      ],
+      "category": "Version Control",
+      "difficulty": "Easy"
+    },
+    {
+      "id": 11,
+      "question": "What does DOM stand for?",
+      "answer": "Document Object Model",
+      "hints": [
+        "It represents web page structure",
+        "A programming interface for HTML/XML",
+        "Starts with 'Document' and ends with 'Model'"
+      ],
+      "category": "Web Development",
+      "difficulty": "Medium"
+    },
+    {
+      "id": 12,
+      "question": "Which programming paradigm does Python primarily follow?",
+      "answer": "Object-Oriented Programming",
+      "hints": [
+        "It supports classes and objects",
+        "Also supports functional programming",
+        "Starts with 'Object' and ends with 'Programming'"
+      ],
+      "category": "Programming",
+      "difficulty": "Medium"
+    },
+    {
+      "id": 13,
+      "question": "What does REST stand for?",
+      "answer": "Representational State Transfer",
+      "hints": [
+        "It's an architectural style for web services",
+        "Uses HTTP methods like GET, POST, PUT, DELETE",
+        "Starts with 'Representational' and ends with 'Transfer'"
+      ],
+      "category": "Web Services",
+      "difficulty": "Hard"
+    },
+    {
+      "id": 14,
+      "question": "Which algorithm is used for sorting in most programming languages?",
+      "answer": "QuickSort",
+      "hints": [
+        "It's a divide-and-conquer algorithm",
+        "Average time complexity is O(n log n)",
+        "Starts with 'Quick' and ends with 'Sort'"
+      ],
+      "category": "Algorithms",
+      "difficulty": "Medium"
+    },
+    {
+      "id": 15,
+      "question": "What does OOP stand for?",
+      "answer": "Object-Oriented Programming",
+      "hints": [
+        "It's a programming paradigm",
+        "Uses objects and classes",
+        "Starts with 'Object' and ends with 'Programming'"
+      ],
+      "category": "Programming",
+      "difficulty": "Easy"
+    },
+    {
+      "id": 16,
+      "question": "Which data structure follows LIFO principle?",
+      "answer": "Stack",
+      "hints": [
+        "Last In, First Out",
+        "Like a stack of plates",
+        "Five letters, starts with 'S'"
+      ],
+      "category": "Data Structures",
+      "difficulty": "Easy"
+    },
+    {
+      "id": 17,
+      "question": "What does CRUD stand for?",
+      "answer": "Create Read Update Delete",
+      "hints": [
+        "Basic operations for data management",
+        "Four basic functions of persistent storage",
+        "Starts with 'Create' and ends with 'Delete'"
+      ],
+      "category": "Database",
+      "difficulty": "Easy"
+    },
+    {
+      "id": 18,
+      "question": "Which protocol is used for sending emails?",
+      "answer": "SMTP",
+      "hints": [
+        "Simple Mail Transfer Protocol",
+        "Used by email servers to send messages",
+        "Four letters, starts with 'S'"
+      ],
+      "category": "Networking",
+      "difficulty": "Medium"
+    },
+    {
+      "id": 19,
+      "question": "What does IDE stand for?",
+      "answer": "Integrated Development Environment",
+      "hints": [
+        "Software for writing and testing code",
+        "Combines multiple development tools",
+        "Starts with 'Integrated' and ends with 'Environment'"
+      ],
+      "category": "Development Tools",
+      "difficulty": "Easy"
+    },
+    {
+      "id": 20,
+      "question": "Which design pattern ensures only one instance of a class exists?",
+      "answer": "Singleton",
+      "hints": [
+        "It's a creational design pattern",
+        "Ensures a class has only one instance",
+        "Starts with 'Single' and ends with 'ton'"
+      ],
+      "category": "Design Patterns",
+      "difficulty": "Hard"
+    }
+  ],
+  "categories": [
+    "Web Development",
+    "Programming",
+    "Database",
+    "Software Development",
+    "Web Security",
+    "Data Format",
+    "Version Control",
+    "Web Services",
+    "Algorithms",
+    "Data Structures",
+    "Networking",
+    "Development Tools",
+    "Design Patterns"
+  ],
+  "difficultyLevels": ["Easy", "Medium", "Hard"],
+  "gameSettings": {
+    "timePerQuestion": 10,
+    "maxHints": 3,
+    "pointsPerCorrect": 10,
+    "timeBonusMultiplier": 1,
+    "totalQuestions": 10
+  }
+}

@@ -1,0 +1,2369 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Index - DSSA</title>
+
+    <!-- Font Links -->
+    <link rel="icon" href="IMG/Favicon 1.png" type="image/x-icon">
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+     <link
+       href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap"
+       rel="stylesheet"
+     />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Gabarito:wght@400;500;600;700;800;900&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@200;300;400;500;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+
+    <!-- Font Awesome -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    />
+
+    <style>
+      /* ===== RESET & BASE STYLES ===== */
+      * {
+        margin: 0;
+        
+        padding: 0;
+        box-sizing: border-box;
+                
+      }
+
+      body {
+        font-family: "Inter", sans-serif;
+        scroll-behavior: smooth;
+        background-color: #000000;
+        background-image:
+          linear-gradient(to bottom, rgba(0,0,0,0) 80vh, #000 100vh),
+          url("IMG/BG6.png");
+        background-size: cover;
+        background-position: center;
+        background-repeat: no-repeat;
+        color: #e5e5f5;
+        min-height: 100vh;
+        display: flex;
+
+        flex-direction: column;
+        align-items: center;
+      }
+
+      /* ===== TYPOGRAPHY & TEXT EFFECTS ===== */
+      .hero-text-gradient {
+        background: linear-gradient(180deg, #cbb6ff 0%, #6f5ae0 55%, #1e163d 100%);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        background-clip: text;
+        font-family: "Inter", sans-serif;
+        font-weight: 900;
+      }
+
+      .hero-text-gradient .char {
+        background: linear-gradient(180deg, #cbb6ff 0%, #6f5ae0 55%, #1e163d 100%);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        background-clip: text;
+      }
+
+      /* ===== LAYOUT & COMPONENTS ===== */
+      .card-bg {
+        background: rgba(22, 24, 40, 0.7);
+        backdrop-filter: blur(10px);
+      }
+
+      /* ===== HEADER & NAVIGATION ===== */
+      header {
+        position: fixed;
+        top: 0;
+        z-index: 50;
+        width: 100%;
+        padding: 1rem;
+        display: flex;
+        justify-content: center;
+        background: none;
+        box-shadow: none;
+        transition: transform 0.5s cubic-bezier(0.4,0,0.2,1), opacity 0.5s cubic-bezier(0.4,0,0.2,1);
+      }
+
+      header.nav-hidden {
+        transform: translateY(-120%);
+        opacity: 0;
+        pointer-events: none;
+      }
+
+      nav {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        max-width: 80rem;
+        width: 100%;
+        padding: 0.75rem 1rem;
+        height: 80px;
+        backdrop-filter: blur(24px) saturate(180%);
+        background: rgba(36, 38, 52, 0.4);
+        border-radius: 9999px;
+        box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2),
+          inset 0 1px 4px rgba(255, 255, 255, 0.1);
+        margin: 1rem 0;
+        border: 1px solid rgba(255, 255, 255, 0.05);
+        transition: all 0.3s ease;
+        position: relative;
+      }
+
+      .logo {
+        display: flex;
+        align-items: center;
+        gap: 0.5rem;
+        text-decoration: none;
+        color: inherit;
+        padding: 0.5rem 1rem;
+        border-radius: 0.75rem;
+      }
+
+      .logo img {
+        border-radius: 50%;
+        width: 32px;
+        height: 32px;
+      }
+
+      .logo span {
+        font-family: "Bricolage Grotesque", sans-serif;
+        font-size: 1.25rem;
+        font-weight: 700;
+        letter-spacing: -0.025em;
+        color: white;
+      }
+
+      .nav-links {
+        display: none;
+        gap: 2rem;
+        font-size: 1.125rem;
+      }
+
+      .nav-links a {
+        text-decoration: none;
+        color: white;
+        transition: all 0.3s ease;
+        font-family: "Inter", sans-serif;
+        padding: 0.5rem 1rem;
+        border-radius: 0.5rem;
+        position: relative;
+      }
+
+      .nav-links a:hover {
+        color: #c084fc;
+      }
+
+      .nav-item {
+        display: flex;
+        align-items: center;
+        gap: 0.25rem;
+      }
+
+      .nav-item svg {
+        height: 1rem;
+        width: 1rem;
+      }
+
+      .contact-btn {
+        background: rgba(22, 24, 40, 0.8);
+        border-radius: 20px;
+        color: white;
+        font-weight: 600;
+        padding: 0.75rem 1.5rem;
+        border: 1px solid rgba(255, 255, 255, 0.2);
+        cursor: pointer;
+        transition: all 0.3s ease;
+        font-family: "Inter", sans-serif;
+        backdrop-filter: blur(8px);
+        font-size: 0.875rem;
+      }
+
+      .contact-btn:hover {
+        box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1);
+      }
+
+      .hamburger {
+        display: none;
+        background: none;
+        border: none;
+        color: #fff;
+        font-size: 1.5rem;
+        cursor: pointer;
+        padding: 0.5rem;
+        border-radius: 8px;
+        transition: all 0.3s ease;
+        margin-left: auto;
+        margin-right: 1rem;
+      }
+
+      .hamburger:hover {
+        background: rgba(192, 132, 252, 0.1);
+        color: #c084fc;
+        transform: scale(1.05);
+      }
+
+      /* Dropdown menu */
+      .nav-dropdown {
+        position: absolute;
+        top: 100%;
+        right: 1rem;
+        width: 280px;
+        background: rgba(22, 24, 40, 0.95);
+        backdrop-filter: blur(24px);
+        border: 1px solid rgba(255, 255, 255, 0.1);
+        border-top: none;
+        border-radius: 0 0 16px 16px;
+        box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+        opacity: 0;
+        visibility: hidden;
+        transform: translateY(-10px);
+        transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        z-index: 1000;
+        padding: 1rem 0;
+      }
+
+      .nav-dropdown.open {
+        opacity: 1;
+        visibility: visible;
+        transform: translateY(0);
+      }
+
+      .nav-dropdown a {
+        display: block;
+        padding: 0.75rem 2rem;
+        color: #e5e5f5;
+        text-decoration: none;
+        font-family: "Inter", sans-serif;
+        font-size: 1rem;
+        transition: all 0.2s ease;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+      }
+
+      .nav-dropdown a:last-child {
+        border-bottom: none;
+      }
+
+      .nav-dropdown a:hover {
+        background: rgba(192, 132, 252, 0.1);
+        color: #c084fc;
+        padding-left: 2.5rem;
+      }
+
+      /* Responsive hamburger menu */
+      @media (max-width: 991.98px) {
+        .hamburger {
+          display: block;
+        }
+        
+        .nav-links {
+          display: none;
+        }
+      }
+
+      @media (min-width: 992px) {
+        .hamburger {
+          display: none;
+        }
+        
+        .nav-links {
+          display: flex;
+        }
+      }
+
+      @media (max-width: 768px) {
+        nav { 
+          flex-direction: row; 
+          height: 64px; 
+          padding: 0.5rem 0.75rem; 
+          border-radius: 9999px; 
+        }
+        
+        .nav-dropdown { 
+          width: 240px; 
+          padding: 0.5rem 0; 
+          right: 0.75rem; 
+        }
+        
+        .nav-dropdown a { 
+          padding: 0.6rem 1rem; 
+        }
+      }
+
+      /* ===== MAIN CONTENT ===== */
+      main {
+        height: 100vh;
+        min-height: unset;
+        display: flex;
+        margin-top: 5rem;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        text-align: center;
+        padding: 1rem;
+        font-family: "Gabarito", sans-serif;
+      }
+
+      /* Subtitle styles moved to responsive section */
+
+      .main-heading {
+        font-family: "Inter", sans-serif;
+        font-size: 2.25rem;
+        font-weight: 900;
+        letter-spacing: -0.025em;
+        line-height: 1.1;
+        margin-bottom: 1rem;
+      }
+
+      .subheading {
+        font-size: 1rem;
+        color: #9ca3af;
+        max-width: 36rem;
+        margin-bottom: 2rem;
+        font-family: "Inter", sans-serif;
+      }
+
+      .cta-btn {
+        background-color: white;
+        color: black;
+        font-weight: 600;
+        padding: 0.75rem 2rem;
+        border-radius: 9999px;
+        box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+        border: none;
+        cursor: pointer;
+        transition: box-shadow 0.2s;
+        font-family: "Inter", sans-serif;
+      }
+
+      .cta-btn:hover {
+        box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1);
+      }
+
+      /* ===== SECTIONS ===== */
+      section {
+        max-width: 80rem;
+        width: 100vw !important;
+        overflow-x: hidden !important;
+        padding: 1rem;
+        margin-top: 3rem;
+        margin-bottom: 3rem;
+      }
+
+      /* ===== ABOUT SECTION ===== */
+      .about-grid {
+        display: grid;
+        grid-template-columns: 1fr;
+        gap: 2rem;
+        align-items: center;
+      }
+
+      .about-title {
+        font-family: "Bricolage Grotesque", sans-serif;
+        font-size: 2.25rem;
+        font-weight: 800;
+        margin-bottom: 1rem;
+      }
+
+      .about-text {
+        color: #9ca3af;
+        font-size: 16px;
+        line-height: 1.75;
+        margin-bottom: 1rem;
+        font-family: "Inter", sans-serif;
+      }
+
+      .about-text:last-child {
+        margin-bottom: 0;
+      }
+
+      /* ===== TOOLS SECTION ===== */
+      .tools-title {
+        font-family: "Bricolage Grotesque", sans-serif;
+        font-size: 2.8rem;
+        font-weight: 600;
+        margin-bottom: 1rem;
+      }
+
+      .code-snippet {
+        padding: 1.5rem;
+        border-radius: 0.5rem;
+        font-size: 0.875rem;
+        color: #d1d5db;
+        font-family: "Inter", sans-serif;
+      }
+
+      .code-snippet pre {
+        overflow: auto;
+      }
+
+      /* ===== CORE DOMAINS ===== */
+      .domains-title {
+        text-align: center;
+        font-family: "Bricolage Grotesque", sans-serif;
+        font-size: 2.25rem;
+        font-weight: 800;
+        margin-bottom: 2rem;
+      }
+
+      .domains-grid {
+        display: grid;
+        grid-template-columns: 1fr;
+        gap: 2rem;
+        align-items: center;
+      }
+
+      .feature-list {
+        display: flex;
+        flex-direction: column;
+        gap: 1.5rem;
+      }
+
+      .feature-item {
+        display: flex;
+        align-items: flex-start;
+        gap: 1rem;
+      }
+
+      .feature-icon {
+        color: #c084fc;
+        font-size: 1.5rem;
+      }
+
+      .feature-content h4 {
+        font-family: "Bricolage Grotesque", sans-serif;
+        font-weight: 700;
+        font-size: 1.25rem;
+        margin-bottom: 0.25rem;
+      }
+
+      .feature-content p {
+        color: #9ca3af;
+        font-family: "Inter", sans-serif;
+      }
+
+      /* ===== POWER SECTION ===== */
+      .power-grid {
+        display: grid;
+        grid-template-columns: 1fr;
+        gap: 2rem;
+        align-items: center;
+      }
+
+      .power-title {
+        font-family: "Bricolage Grotesque", sans-serif;
+        font-size: 3rem;
+        font-weight: 800;
+        margin-bottom: 1rem;
+      }
+
+      .power-cards {
+        display: grid;
+        grid-template-columns: 1fr;
+        gap: 1rem;
+        margin-top: 2rem;
+      }
+
+      .power-card {
+        padding: 1.5rem;
+        width: 250px;
+        border-radius: 0.5rem;
+        text-align: center;
+      }
+
+      .power-card h3 {
+        font-family: "Bricolage Grotesque", sans-serif;
+        font-weight: 500;
+        font-size: 1.25rem;
+        margin-bottom: 0.5rem;
+      }
+
+      .power-card p {
+        color: #9ca3af;
+        font-size: 0.875rem;
+        font-family: "Inter", sans-serif;
+      }
+
+      .power-image {
+        display: flex;
+        justify-content: center;
+      }
+
+      .power-image img {
+        border-radius: 0.5rem;
+      }
+
+      /* ===== TESTIMONIALS ===== */
+      .testimonials-title {
+        text-align: center;
+        font-family: "Bricolage Grotesque", sans-serif;
+        font-size: 2.25rem;
+        font-weight: 800;
+        margin-bottom: 2rem;
+      }
+
+      .testimonials-grid {
+        display: grid;
+        grid-template-columns: 1fr;
+        gap: 2rem;
+      }
+
+      .testimonial-card {
+        padding: 1.5rem;
+        border-radius: 0.5rem;
+        
+      }
+
+      .testimonial-header {
+        display: flex;
+        align-items: center;
+        gap: 1rem;
+        margin-bottom: 1rem;
+      }
+
+      .testimonial-avatar {
+        border-radius: 50%;
+      }
+
+      .testimonial-name {
+        font-family: "Bricolage Grotesque", sans-serif;
+        font-weight: 700;
+      }
+
+      .testimonial-role {
+        color: #6b7280;
+        font-size: 0.875rem;
+        font-family: "Inter", sans-serif;
+      }
+
+      .testimonial-text {
+        color: #9ca3af;
+        font-size: 0.875rem;
+        font-family: "Inter", sans-serif;
+      }
+
+      /* ===== FOOTER ===== */
+      .site-footer {
+        width: 100%;
+        margin-top: auto;
+        padding: 0;
+        background: #000000;
+        border-top: 1px solid rgba(255, 255, 255, 0.1);
+      }
+
+      .site-footer .footer-inner {
+        max-width: 80rem;
+        width: calc(100% - 2rem);
+        margin: 0 auto;
+        padding: 1.5rem 2rem;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 2rem;
+      }
+      
+      .footer-left {
+        display: flex;
+        align-items: center;
+      }
+      
+      .footer-logo {
+        display: flex;
+        align-items: center;
+        gap: 1rem;
+      }
+      
+      .logo-circle {
+        width: 40px;
+        height: 40px;
+        background: #ffffff;
+        border-radius: 50%;
+        flex-shrink: 0;
+        overflow: hidden;
+      }
+      
+      .logo-circle img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+      }
+      
+      .copyright-text {
+        color: #ffffff;
+        font-family: "Inter", sans-serif;
+        font-size: 0.9rem;
+        font-weight: 500;
+        letter-spacing: 0.02em;
+        white-space: nowrap;
+      }
+      
+      .footer-center {
+          display: flex;
+        align-items: center;
+        justify-content: center;
+        flex: 1;
+      }
+      
+      .footer-nav {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 1.5rem;
+        background: rgba(255, 255, 255, 0.05);
+        backdrop-filter: blur(10px);
+        -webkit-backdrop-filter: blur(10px);
+        border: 1px solid rgba(255, 255, 255, 0.1);
+        border-radius: 0.75rem;
+        padding: 1rem 1.5rem;
+        box-shadow: 0 4px 16px rgba(0, 0, 0, 0.1);
+        min-height: 60px;
+        flex-wrap: wrap;
+      }
+      
+      .footer-nav a {
+        color: #ffffff;
+        text-decoration: none;
+        font-family: "Inter", sans-serif;
+        font-size: 0.85rem;
+        font-weight: 500;
+        letter-spacing: 0.05em;
+        text-transform: uppercase;
+        transition: color 0.3s ease;
+        white-space: nowrap;
+        padding: 0.5rem 0.75rem;
+        border-radius: 0.5rem;
+      }
+      
+      .footer-nav a:hover {
+        color: #c084fc;
+        background: rgba(192, 132, 252, 0.1);
+      }
+      
+      .nav-separator {
+        color: #ffffff;
+        font-size: 0.85rem;
+        font-weight: 300;
+      }
+      
+      .footer-right {
+        display: flex;
+        align-items: center;
+      }
+      
+      .social-icons {
+        display: flex;
+        align-items: center;
+        gap: 1rem;
+      }
+      
+      .social-circle {
+        width: 40px;
+        height: 40px;
+        background: #ffffff;
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        text-decoration: none;
+        color: #000000;
+        font-size: 1.2rem;
+        transition: all 0.3s ease;
+        flex-shrink: 0;
+      }
+      
+      .social-circle:hover {
+        transform: scale(1.1);
+        background: #c084fc;
+        color: #ffffff;
+      }
+      
+      .social-circle.instagram {
+        position: relative;
+        overflow: hidden;
+      }
+      
+      .social-circle.instagram i {
+        position: relative;
+        z-index: 2;
+      }
+      
+      .social-circle.linkedin {
+        position: relative;
+        overflow: hidden;
+      }
+      
+      .social-circle.linkedin i {
+        position: relative;
+        z-index: 2;
+      }
+
+      /* Footer Responsive */
+      @media (max-width: 768px) {
+        .site-footer .footer-inner {
+          flex-direction: column;
+          gap: 1.5rem;
+          padding: 1.5rem 1rem;
+          text-align: center;
+        }
+        
+        .footer-center {
+          order: 2;
+        }
+        
+        .footer-left {
+          order: 1;
+        }
+        
+        .footer-right {
+          order: 3;
+        }
+        
+        .footer-nav {
+          flex-wrap: wrap;
+          justify-content: center;
+          gap: 0.75rem;
+          padding: 0.875rem 1rem;
+          min-height: 50px;
+          width: 100%;
+          max-width: 400px;
+          margin: 0 auto;
+        }
+
+        .footer-nav a {
+          font-size: 0.75rem;
+          padding: 0.375rem 0.5rem;
+        }
+
+        .nav-separator {
+          font-size: 0.75rem;
+        }
+      }
+
+      @media (max-width: 600px) {
+        .site-footer .footer-inner {
+          width: calc(100% - 1rem);
+          padding: 1rem 0.75rem;
+          gap: 1.5rem;
+        }
+        
+        .logo-circle,
+        .social-circle {
+          width: 32px;
+          height: 32px;
+        }
+        
+        .copyright-text {
+          font-size: 0.8rem;
+        }
+        
+        .footer-nav {
+          gap: 0.5rem;
+          padding: 0.75rem 0.875rem;
+          min-height: 45px;
+          max-width: 350px;
+        }
+        
+        .footer-nav a {
+          font-size: 0.7rem;
+          padding: 0.25rem 0.375rem;
+        }
+        
+        .nav-separator {
+          font-size: 0.7rem;
+        }
+        
+        .social-circle {
+          font-size: 1rem;
+        }
+      }
+
+      @media (max-width: 480px) {
+        .site-footer .footer-inner {
+          width: calc(100% - 0.5rem);
+          padding: 0.75rem 0.5rem;
+          gap: 1.25rem;
+        }
+        
+        .footer-nav {
+          flex-direction: row;
+          flex-wrap: wrap;
+          gap: 0.375rem;
+          padding: 0.625rem 0.75rem;
+          min-height: 40px;
+          max-width: 300px;
+        }
+        
+        .nav-separator {
+          display: none;
+        }
+        
+        .footer-nav a {
+          font-size: 0.65rem;
+          padding: 0.25rem 0.375rem;
+        }
+      }
+
+      /* ===== CHATGPT OVERLAY ===== */
+      .chatgpt-overlay {
+        position: fixed;
+        left: 50%;
+        top: 10vh;
+        transform: translateX(-50%);
+        min-width: 320px;
+        max-width: 90vw;
+        background: #181825ee;
+        color: #e5e5f5;
+        border-radius: 1rem;
+        box-shadow: 0 8px 32px rgba(0,0,0,0.25);
+        z-index: 99999;
+        padding: 2rem 1.5rem 1.5rem 1.5rem;
+        font-family: 'Inter', sans-serif;
+        display: none;
+      }
+
+      .chatgpt-overlay .close-btn {
+        position: absolute;
+        top: 1rem;
+        right: 1.2rem;
+        background: none;
+        border: none;
+        color: #c084fc;
+        font-size: 1.5rem;
+        cursor: pointer;
+      }
+
+      .chatgpt-overlay .chatgpt-answer {
+        margin-top: 1.5rem;
+        white-space: pre-line;
+        font-size: 1.08rem;
+        line-height: 1.7;
+      }
+
+      .chatgpt-overlay .chatgpt-loading {
+        color: #c084fc;
+        font-size: 1.1rem;
+        margin-top: 1.5rem;
+      }
+
+      /* ===== ANIMATIONS & TRANSITIONS ===== */
+      .card-bg, .power-card, .testimonial-card {
+        transition: transform 0.1s cubic-bezier(0.4,0,0.2,1), 
+                    box-shadow 0.1s cubic-bezier(0.4,0,0.2,1), 
+                    opacity 0.1s cubic-bezier(0.4,0,0.2,1);
+        will-change: transform, box-shadow, opacity;
+      }
+
+      .card-bg:hover, .power-card:hover, .testimonial-card:hover {
+        transform: translateY(-12px) scale(1.03) rotateZ(-0.5deg);
+        box-shadow: 0 12px 32px 0 rgba(80,80,120,0.18), 0 2px 8px 0 rgba(0,0,0,0.10);
+        z-index: 2;
+      }
+
+      /* ===== MOBILE-FIRST BASE: already covered by your current CSS ===== */
+
+      /* ===== MAIN CONTENT ===== */
+
+      /* Mobile-first base styles (default for all screens) */
+      .subtitle {
+        width: 90%;
+        margin: 0 auto 1.5rem auto;
+        padding: 0.25rem 1.5rem;
+        font-size: 0.875rem;
+        border-radius: 9999px;
+        background-color: #1f2937;
+        color: #d1d5db;
+        text-align: center;
+        border: 1px solid #374151;
+        font-family: "Inter", sans-serif;
+        font-weight: 500;
+      }
+
+      /* Mobile-specific styles for smaller screens */
+      @media (max-width: 768px) {
+        /* Hero title - 36px on mobile */
+        .main-heading {
+          font-size: 2.25rem !important; /* 36px */
+        }
+        
+        /* Tools title - 36px on mobile */
+        .tools-title {
+          font-size: 2.25rem !important; /* 36px */
+        }
+        
+        /* Tools image - 90% width and centered for mobile */
+        .tools-image {
+          width: 90% !important;
+          display: flex !important;
+          justify-content: center !important;
+          margin: 0 auto !important;
+        }
+        
+        .tools-image img {
+          width: 100% !important;
+          max-width: 100% !important;
+        }
+        
+        /* Power title - 36px on mobile */
+        .power-title {
+          font-size: 2.25rem !important; /* 36px */
+          word-wrap: break-word !important;
+          overflow-wrap: break-word !important;
+          hyphens: auto !important;
+          max-width: 100% !important;
+          white-space: normal !important;
+          line-height: 1.2 !important;
+        }
+        
+        /* Power cards - 10px padding and single column for mobile */
+        .power-card {
+          padding: 10px !important;
+          text-align: center !important;
+          width: 90% !important;
+        }
+        
+        .power-cards {
+          grid-template-columns: 1fr !important;
+          gap: 0.5rem !important;
+          justify-items: center !important;
+        }
+        
+        /* Hide power image on mobile */
+        .power-image {
+          display: none !important;
+        }
+        
+        /* Power grid container constraints */
+        .power-grid {
+          max-width: 100% !important;
+          overflow: hidden !important;
+          word-wrap: break-word !important;
+        }
+        
+        /* Event styles - 36px for event name, 18px for event p, 4:5 image ratio */
+        .event-name {
+          font-size: 2.25rem !important; /* 36px */
+          font-family: "Bricolage Grotesque", sans-serif;
+          font-weight: 700;
+        }
+        
+        .event-p {
+          font-size: 1.125rem !important; /* 18px */
+          font-family: "Inter", sans-serif;
+        }
+        
+        .event-image {
+          aspect-ratio: 4/5 !important;
+          object-fit: cover;
+          width: 100%;
+        }
+      }
+      
+      /* Small tablets and up (≥576px) */
+      @media (min-width: 576px) {
+        .nav-links {
+          display: flex;
+        }
+
+        .subtitle {
+          border-radius: 20px;
+          width: 50%;
+          font-size: 1rem;
+          padding: 0.3rem 2.5rem;
+        }
+
+        .hamburger {
+          display: none;
+          align-items: center;
+        }
+        .about-grid,
+        .domains-grid,
+        .power-grid,
+        .testimonials-grid {
+          grid-template-columns: repeat(2, 1fr);
+        }
+        .power-cards {
+          grid-template-columns: repeat(2, 1fr);
+        }
+      }
+
+      /* Tablets and up (≥768px) */
+      @media (min-width: 768px) {
+        .main-heading {
+          font-size: 3rem;
+        }
+        .subheading {
+          font-size: 1.125rem;
+        }
+        .about-grid {
+          grid-template-columns: 1fr 1fr;
+        }
+        .domains-grid {
+          grid-template-columns: 1fr 1fr;
+        }
+        .power-grid {
+          grid-template-columns: 1fr 1fr;
+        }
+        .power-cards {
+          grid-template-columns: repeat(3, 1fr);
+        }
+        .testimonials-grid {
+          grid-template-columns: repeat(3, 1fr);
+        }
+      }
+
+      /* Small desktops and up (≥992px) */
+      @media (min-width: 992px) {
+        nav {
+          padding: 1rem 2rem;
+        }
+        .main-heading {
+          font-size: 3.5rem;
+        }
+        .subtitle {
+          font-size: 1.125rem;
+        }
+        section {
+          padding: 2rem;
+        }
+      }
+
+      /* Large desktops and up (≥1200px) */
+      @media (min-width: 1200px) {
+        .main-heading {
+          font-size: 4rem;
+        }
+        .subheading {
+          font-size: 1.25rem;
+        }
+        .about-text {
+          font-size: 1.125rem;
+        }
+        .tools-title,
+        .domains-title,
+        .power-title,
+        .testimonials-title {
+          font-size: 3rem;
+        }
+
+
+              }
+
+        /* ===== MEMBERSHIP POPUP STYLES ===== */
+        .membership-popup {
+          position: fixed;
+          top: 0;
+          left: 0;
+          width: 100%;
+          height: 100vh;
+          background: rgba(0, 0, 0, 0.8);
+          backdrop-filter: blur(8px);
+          display: none;
+          justify-content: center;
+          align-items: center;
+          z-index: 9999;
+          opacity: 0;
+          transition: all 0.3s ease;
+        }
+
+        .membership-popup.show {
+          display: flex;
+          opacity: 1;
+          visibility: visible;
+        }
+
+        .popup-content {
+          background: rgba(36, 38, 52, 0.95);
+          border: 1px solid rgba(255, 255, 255, 0.1);
+          border-radius: 20px;
+          padding: 2rem;
+          max-width: 500px;
+          width: calc(100% - 2rem);
+          text-align: center;
+          position: relative;
+          box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+          backdrop-filter: blur(20px);
+        }
+
+        .popup-header h2 {
+          color: #cbb6ff;
+          font-size: 2rem;
+          margin-bottom: 1rem;
+          font-weight: 700;
+          font-family: "Bricolage Grotesque", sans-serif;
+        }
+
+        .popup-body p {
+          color: #e5e5f5;
+          font-size: 1.1rem;
+          line-height: 1.6;
+          margin-bottom: 1.5rem;
+          font-family: "Bricolage Grotesque", sans-serif;
+        }
+
+        .popup-join-btn {
+          display: inline-block;
+          background: linear-gradient(135deg, #6f5ae0 0%, #8b7ae6 100%);
+          color: white;
+          padding: 12px 30px;
+          border-radius: 25px;
+          text-decoration: none;
+          font-weight: 600;
+          font-size: 1.1rem;
+          transition: all 0.3s ease;
+          border: 2px solid transparent;
+          font-family: "Bricolage Grotesque", sans-serif;
+        }
+
+        .popup-join-btn:hover {
+          background: linear-gradient(135deg, #8b7ae6 0%, #a392f0 100%);
+          transform: translateY(-2px);
+          box-shadow: 0 8px 25px rgba(111, 90, 224, 0.4);
+        }
+
+        .popup-close {
+          position: absolute;
+          top: -15px;
+          right: -15px;
+          width: 40px;
+          height: 40px;
+          background: rgba(36, 38, 52, 0.95);
+          border: 1px solid rgba(255, 255, 255, 0.1);
+          border-radius: 50%;
+          color: white;
+          font-size: 24px;
+          cursor: pointer;
+        display: flex;
+        align-items: center;
+          justify-content: center;
+          transition: all 0.3s ease;
+          backdrop-filter: blur(20px);
+        }
+
+        .popup-close:hover {
+          background: rgba(36, 38, 52, 1);
+          transform: scale(1.1);
+        }
+
+        /* Mobile Responsive Styles */
+      @media (max-width: 768px) {
+          .popup-content {
+            padding: 1.5rem;
+            margin: 1rem;
+            max-width: calc(100% - 2rem);
+            width: calc(100% - 2rem);
+            border-radius: 16px;
+          }
+          
+          .popup-header h2 {
+            font-size: 1.5rem;
+            margin-bottom: 0.75rem;
+          }
+          
+          .popup-body p {
+            font-size: 1rem;
+            line-height: 1.5;
+            margin-bottom: 1.25rem;
+          }
+          
+          .popup-join-btn {
+            padding: 10px 24px;
+            font-size: 1rem;
+            border-radius: 20px;
+          }
+          
+          .popup-close {
+            top: -12px;
+            right: -12px;
+            width: 36px;
+            height: 36px;
+            font-size: 20px;
+          }
+        }
+
+        @media (max-width: 480px) {
+          .popup-content {
+            padding: 1.25rem;
+            margin: 0.75rem;
+            max-width: calc(100% - 1.5rem);
+            width: calc(100% - 1.5rem);
+            border-radius: 12px;
+          }
+          
+          .popup-header h2 {
+            font-size: 1.25rem;
+          }
+          
+          .popup-body p {
+            font-size: 0.95rem;
+            margin-bottom: 1rem;
+          }
+          
+          .popup-join-btn {
+            padding: 8px 20px;
+            font-size: 0.95rem;
+            border-radius: 18px;
+          }
+          
+          .popup-close {
+            top: -10px;
+            right: -10px;
+            width: 32px;
+            height: 32px;
+            font-size: 18px;
+          }
+        }
+
+    </style>
+  </head>
+  <body>
+    <!-- Header Section -->
+    <header>
+      <nav>
+        <a href="index.html" class="logo">
+          <img
+            src="IMG/Favicon 1.png" 
+            srcset="IMG/Favicon 1.png 32w, IMG/Favicon 1.png 64w"
+            sizes="32px"
+            width="6%"
+            alt="DSSA Logo"
+          />
+          <span>DSSA</span>
+        </a>
+        
+        <button class="hamburger" aria-label="Open menu">
+          <i class="fas fa-bars"></i>
+        </button>
+        
+        <div class="nav-links">
+        
+          <div style="display: flex; align-items: center; justify-content: center;"><a href="events.html">Events</a></div>
+          
+           <div style="display: flex; align-items: center; justify-content: center;"><a href="team.html">Team</a></div>
+            <div style="display: flex; align-items: center; justify-content: center;"><a href="alumni.html">Alumni</a></div>
+          <a href="contact.html"><button class="contact-btn">Contact Us</button></a>
+        </div>
+      </nav>
+      
+      <!-- Dropdown Menu -->
+      <div class="nav-dropdown">
+          <a href="events.html">Events</a>
+       
+          <a href="team.html">Team</a>
+          <a href="alumni.html">Alumni</a>
+        <a href="contact.html">Contact Us</a>
+        </div>
+    </header>
+
+<div data-barba="wrapper">
+  <div data-barba="container" data-barba-namespace="home">
+
+        <!-- Hero Section -->
+        <main>
+          <!-- Subtitle above the main heading -->
+          <div class="subtitle">
+            Discover • Analyze • Transform
+          </div>
+
+          <!-- Main Heading -->
+          <h1 class="main-heading">
+            <span class="hero-text-gradient">Data Science</span><br />
+            <span class="hero-text-gradient">Student Association</span>
+          </h1>
+
+          <!-- Subheading -->
+          <p class="subheading">
+            Where curiosity meets code, and innovation becomes impact.
+          </p>
+
+          <!-- Call to Action Button -->
+          <a href="contact.html" target="_blank" class="cta-btn">Join Us</a>
+        </main>   
+
+        <!-- DSSA Game Popup -->
+        <!-- <div id="membership-popup" class="membership-popup">
+          <div class="popup-content">
+            <button class="popup-close" id="popup-close">&times;</button>
+            <div class="popup-header">
+              <h2>Play Our Interactive Quizzes!</h2>
+            </div>
+            <div class="popup-body">
+              <p>Challenge yourself with our exciting online quizzes! Test your skills and have fun! 🎮</p>
+              <div style="display: flex; gap: 1rem; justify-content: center;">
+                <a href="https://dssa-quiz.vercel.app/" target="_blank" class="popup-join-btn">DSSA Quiz</a>
+              <a href="https://emoji-quiz-three.vercel.app/" target="_blank" class="popup-join-btn">Emoji Quiz</a>
+              </div>
+            </div>
+          </div>
+        </div> -->
+
+
+
+        <!-- Dashboard Section
+        <section>
+          <img src="IMG/BROWSER.png " alt="Dashboard" width="100%" />
+        </section> -->
+
+        <!-- About Us & Tools Combined Section -->
+        <section
+          style="
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            gap: 4rem;
+          "
+        >
+          <!-- About Us Section -->
+          <div>
+            <h2 class="about-title" style="color: #4361ee">About Us</h2>
+            <p class="about-text">
+              The Data Science Student Association (DSSA) is committed to nurturing
+              the next generation of data science professionals. We believe in the
+              power of data to transform industries and drive innovation.
+              <br />
+              Our mission is to equip students with the skills, knowledge, and
+              practical experience needed to excel in the rapidly evolving field of
+              data science. Through hands-on workshops, seminars, and collaborative
+              projects, we create an environment where learning meets real-world
+              application.
+              <br />
+              We offer a wide range of activities including technical workshops,
+              industry guest lectures, hackathons, and networking events. Our
+              community supports both experienced data scientists and newcomers to
+              the field, fostering a culture of continuous learning and growth.
+            </p>
+            <br />
+          </div>
+
+          <!-- Tools Section -->
+          <div class="about-grid">
+            <!-- Text content -->
+            <div>
+              <h3
+                style="
+                  font-family: 'Bricolage Grotesque', sans-serif;
+                  font-size: 1rem;
+                  color: #c084fc;
+                  margin-bottom: 1rem;
+                "
+              >
+                Begin Your Journey
+              </h3>
+              <h2 class="tools-title">
+                <span style="color: #7209b7; font-weight: 800">DSSA</span> trains
+                you <br />on the tools fueling <br />today's AI.
+              </h2>
+            </div>
+            <!-- Tools list -->
+            <div class="tools-image" style="background-color: #1f293700; padding: 0;">
+              <img 
+                src="IMG/Tools.png" 
+                srcset="IMG/Tools.png 400w, IMG/Tools.png 800w, IMG/Tools.png 1200w"
+                sizes="(max-width: 600px) 80vw, 800px"
+                alt="Tools" 
+                width="80%" 
+              />
+            </div>
+          </div>
+        </section>
+
+        <!-- Core Domains Section -->
+        <section
+          style="
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+          "
+        >
+          <h2 class="domains-title" style="text-align: start">
+            Master the Core Domains of <br />
+            <span style="color: #7209b7">Modern Data Science</span>
+          </h2>
+          <div class="domains-grid">
+            <!-- DSSA Bulletin Card -->
+            <div
+              class="card-bg"
+              style="padding: 0; border-radius: 0.75rem; overflow: hidden"
+            >
+              <!-- Card Header -->
+              <div
+                style="
+                  background-color: #374151;
+                  padding: 1rem;
+                  display: flex;
+                  align-items: center;
+                  justify-content: space-between;
+                "
+              >
+                <div style="display: flex; align-items: center; gap: 0.5rem">
+                  <i class="fas fa-bullhorn" style="color: #fbbf24"></i>
+                  <span
+                    style="
+                      color: white;
+                      font-family: 'Bricolage Grotesque', sans-serif;
+                      font-weight: 400;
+                      font-size: 1.5rem;
+                    "
+                    >DSSA Bulletin</span
+                  >
+                </div>
+                <div style="display: flex; gap: 0.25rem">
+                  <span
+                    style="
+                      width: 4px;
+                      height: 4px;
+                      background-color: white;
+                      border-radius: 50%;
+                    "
+                  ></span>
+                  <span
+                    style="
+                      width: 4px;
+                      height: 4px;
+                      background-color: white;
+                      border-radius: 50%;
+                    "
+                  ></span>
+                  <span
+                    style="
+                      width: 4px;
+                      height: 4px;
+                      background-color: white;
+                      border-radius: 50%;
+                    "
+                  ></span>
+                </div>
+              </div>
+
+              <!-- Card Content -->
+              <div style="padding: 1.5rem">
+                <h3
+                  style="
+                    color: white;
+                    font-family: 'Bricolage Grotesque', sans-serif;
+                    font-size: 1.25rem;
+                    margin-bottom: 0.5rem;
+                  "
+                >
+                  What's Happening at Data Science Industry?
+                </h3>
+                <p
+                  style="
+                    color: #9ca3af;
+                    font-family: 'Inter', sans-serif;
+                    font-size: 0.875rem;
+                    margin-bottom: 1.5rem;
+                  "
+                >
+                  Unlock industry insights, workshops, and hands-on experiences.
+                </p>
+
+                <!-- Bottom Navigation -->
+                <div
+                  style="
+                    background-color: #374151;
+                    padding: 1rem;
+                    border-radius: 0.5rem;
+                    display: flex;
+                    align-items: center;
+                    gap: 0.75rem;
+                    flex-wrap: wrap;
+                  "
+                >
+                  <button
+                    style="
+                      background-color: #10b981;
+                      color: white;
+                      padding: 0.25rem 0.75rem;
+                      border-radius: 9999px;
+                      border: none;
+                      font-family: 'Inter', sans-serif;
+                      font-size: 0.75rem;
+                      display: flex;
+                      align-items: center;
+                      gap: 0.25rem;
+                    "
+                  >
+                    <span
+                      style="
+                        width: 6px;
+                        height: 6px;
+                        background-color: white;
+                        border-radius: 50%;
+                      "
+                    ></span>
+                    Learning
+                  </button>
+                  <button
+                    style="
+                      background-color: transparent;
+                      color: white;
+                      padding: 0.25rem 0.75rem;
+                      border-radius: 9999px;
+                      border: 1px solid #6b7280;
+                      font-family: 'Inter', sans-serif;
+                      font-size: 0.75rem;
+                      display: flex;
+                      align-items: center;
+                      gap: 0.25rem;
+                    "
+                  >
+                    <i class="fas fa-star"></i> Academics
+                  </button>
+                  <button
+                    style="
+                      background-color: transparent;
+                      color: white;
+                      padding: 0.25rem 0.75rem;
+                      border-radius: 9999px;
+                      border: 1px solid #6b7280;
+                      font-family: 'Inter', sans-serif;
+                      font-size: 0.75rem;
+                      display: flex;
+                      align-items: center;
+                      gap: 0.25rem;
+                    "
+                  >
+                   <a href="events.html" style="text-decoration: none; color: white;"><i class="fas fa-user"></i> Events</a>
+                  </button>
+                  <div style="flex-grow: 1; position: relative">
+                    <input
+                      type="text"
+                      placeholder="Learn something new."
+                      style="
+                        width: 100%;
+                        background-color: #1f2937;
+                        border: 1px solid #6b7280;
+                        border-radius: 9999px;
+                        padding: 0.5rem 1rem;
+                        color: white;
+                        font-family: 'Inter', sans-serif;
+                        font-size: 0.75rem;
+                      "
+                    />
+                    <i
+                      class="fas fa-search"
+                      style="
+                        position: absolute;
+                        right: 0.75rem;
+                        top: 50%;
+                        transform: translateY(-50%);
+                        color: #6b7280;
+                      "
+                    ></i>
+                  </div>
+                </div>
+
+                <!-- Lightbulb Icon -->
+                <div style="position: relative; margin-top: 1rem">
+                  <i
+                    class="fas fa-lightbulb"
+                    style="
+                      position: absolute;
+                      right: 0;
+                      bottom: 0;
+                      color: #fbbf24;
+                      font-size: 1.5rem;
+                      filter: drop-shadow(0 0 10px #fbbf24);
+                    "
+                  ></i>
+                </div>
+              </div>
+            </div>
+
+            <!-- Core Domains List -->
+            <div style="display: flex; flex-direction: column; gap: 2rem">
+              <!-- Deep Learning -->
+              <div
+                style="
+                  display: flex;
+                  align-items: flex-start;
+                  gap: 1rem;
+                  padding-bottom: 2rem;
+                  border-bottom: 1px solid #374151;
+                "
+              >
+                <div
+                  style="
+                    width: 3rem;
+                    height: 3rem;
+                    background-color: #bbbbbb13;
+                    border-radius: 0.5rem;
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                    flex-shrink: 0;
+                  "
+                >
+                  <i
+                    class="fas fa-brain"
+                    style="color: white; font-size: 1.25rem"
+                  ></i>
+                </div>
+                <div>
+                  <h3
+                    style="
+                      color: #4361ee;
+                      font-family: 'Bricolage Grotesque', sans-serif;
+                      font-size: 1.25rem;
+                      font-weight: 700;
+                      margin-bottom: 0.5rem;
+                    "
+                  >
+                    Deep Learning
+                  </h3>
+                  <p
+                    style="
+                      color: white;
+                      font-family: 'Inter', sans-serif;
+                      font-size: 0.875rem;
+                      line-height: 1.5;
+                    "
+                  >
+                    Dive deep into neural networks, CNNs, RNNs, and transformers.
+                    Train generative models with TensorFlow and PyTorch.
+                  </p>
+                </div>
+              </div>
+
+              <!-- Data Analytics -->
+              <div
+                style="
+                  display: flex;
+                  align-items: flex-start;
+                  gap: 1rem;
+                  padding-bottom: 2rem;
+                  border-bottom: 1px solid #374151;
+                "
+              >
+                <div
+                  style="
+                    width: 3rem;
+                    height: 3rem;
+                    background-color: #bbbbbb13;
+                    border-radius: 0.5rem;
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                    flex-shrink: 0;
+                  "
+                >
+                  <i
+                    class="fas fa-chart-bar"
+                    style="color: white; font-size: 1.25rem"
+                  ></i>
+                </div>
+                <div>
+                  <h3
+                    style="
+                      color: #4361ee;
+                      font-family: 'Bricolage Grotesque', sans-serif;
+                      font-size: 1.25rem;
+                      font-weight: 700;
+                      margin-bottom: 0.5rem;
+                    "
+                  >
+                    Data Analytics
+                  </h3>
+                  <p
+                    style="
+                      color: white;
+                      font-family: 'Inter', sans-serif;
+                      font-size: 0.875rem;
+                      line-height: 1.5;
+                    "
+                  >
+                    Clean, manipulate, and visualize real-world datasets. Use SQL,
+                    Pandas, Tableau, and PowerBI to extract insights that drive
+                    action.
+                  </p>
+                </div>
+              </div>
+
+              <!-- AI Applications -->
+              <div style="display: flex; align-items: flex-start; gap: 1rem">
+                <div
+                  style="
+                    width: 3rem;
+                    height: 3rem;
+                    background-color: #bbbbbb13;
+                    border-radius: 0.5rem;
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                    flex-shrink: 0;
+                  "
+                >
+                  <i
+                    class="fas fa-bolt"
+                    style="color: white; font-size: 1.25rem"
+                  ></i>
+                </div>
+                <div>
+                  <h3
+                    style="
+                      color: #4361ee;
+                      font-family: 'Bricolage Grotesque', sans-serif;
+                      font-size: 1.25rem;
+                      font-weight: 700;
+                      margin-bottom: 0.5rem;
+                    "
+                  >
+                    AI Applications
+                  </h3>
+                  <p
+                    style="
+                      color: white;
+                      font-family: 'Inter', sans-serif;
+                      font-size: 0.875rem;
+                      line-height: 1.5;
+                    "
+                  >
+                    Apply AI to healthcare, finance, and more. Learn to deploy
+                    models using MLOps best practices and cloud tools.
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- Power of Data Section -->
+        <section
+          style="
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+          "
+        >
+          <div class="power-grid">
+            <!-- Left side with text and cards -->
+            <div>
+              <h2 class="power-title">
+                We
+                <span style="color: #7209b7; font-weight: 800"
+                  >Empower students </span
+                >to unlock the Power of Data
+              </h2>
+              <p style="color: white">
+                At DSSA, we provide students with the tools, knowledge, and
+                community support to turn raw data into real-world solutions. Your
+                data science journey begins here !
+              </p>
+              <div class="power-cards">
+                <div class="card-bg power-card">
+                  <h3>Workshops & Training</h3>
+                  <p>
+                    Dive into Python, machine learning, and AI with hands-on
+                    guidance from mentors and industry experts.
+                  </p>
+                </div>
+                <div class="card-bg power-card">
+                  <h3>Competitions</h3>
+                  <p>
+                    Solve real-world problems, build impactful projects, and gain
+                    recognition through coding challenges and AI hackathons.
+                  </p>
+                </div>
+              </div>
+            </div>
+            <!-- Image placeholder on the right -->
+            <div class="power-image">
+              <img
+                src="IMG/Power Of Data.png"
+                srcset="IMG/Power Of Data.png 400w, IMG/Power Of Data.png 800w, IMG/Power Of Data.png 1200w"
+                sizes="(max-width: 600px) 100vw, 800px"
+                alt="Power of Data placeholder"
+                width="100%"
+              />
+            </div>
+          </div>
+        </section>
+
+        <!-- Testimonials Section -->
+        <section
+          id="testimonials-section"
+          style="
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+          "
+        >
+          <h2 class="testimonials-title">What Students Say</h2>
+          <div class="testimonials-grid">
+            <!-- Testimonial Card 1 -->
+            
+            <!-- Testimonial Card 2 -->
+            <div class="card-bg testimonial-card">
+              <div class="testimonial-header">
+                <img
+                  src="https://placehold.co/40x40/161828/9CA3AF?text=AJ"
+                  alt="User 2"
+                  class="testimonial-avatar"
+                />
+                <div>
+                  <h4 class="testimonial-name">Yash Naik</h4>
+                  <p class="testimonial-role">Participant</p>
+                </div>
+              </div>
+              <p class="testimonial-text">
+                "The events were very helpful and helped me a lot in my journey of data science."
+              </p>
+            </div>
+            <!-- Testimonial Card 3 -->
+            <div class="card-bg testimonial-card">
+              <div class="testimonial-header">
+                <img
+                  src="https://placehold.co/40x40/161828/9CA3AF?text=KR"
+                  alt="User 3"
+                  class="testimonial-avatar"
+                />
+                <div>
+                  <h4 class="testimonial-name">Karteek Redekar</h4>
+                  <p class="testimonial-role">AIDS TY 2025-26</p>
+                </div>
+              </div>
+              <p class="testimonial-text">
+                "A fantastic resource for anyone passionate about data science."
+              </p>
+            </div>
+            
+            <!-- Testimonial Card 4 -->
+            <div class="card-bg testimonial-card">
+              <div class="testimonial-header">
+                <img
+                  src="https://placehold.co/40x40/161828/9CA3AF?text=AU"
+                  alt="User 4"
+                  class="testimonial-avatar"
+                />
+                <div>
+                  <h4 class="testimonial-name">Aparna Umesh Bhore</h4>
+                  <p class="testimonial-role">AIDS TY 2025-26</p>
+                </div>
+              </div>
+              <p class="testimonial-text">
+                "DSSA has been instrumental in my data science journey. The hands-on projects and mentorship have given me practical skills that go beyond textbooks."
+              </p>
+            </div>
+            
+            <!-- Testimonial Card 5 -->
+            <div class="card-bg testimonial-card">
+              <div class="testimonial-header">
+                <img
+                  src="https://placehold.co/40x40/161828/9CA3AF?text=JM"
+                  alt="User 5"
+                  class="testimonial-avatar"
+                />
+                <div>
+                  <h4 class="testimonial-name">Pranjal Mankudkar</h4>
+                  <p class="testimonial-role">Participant</p>
+                </div>
+              </div>
+              <p class="testimonial-text">
+                "The networking opportunities and industry connections I've gained through DSSA are invaluable. It's more than just a club - it's a community that supports growth."
+              </p>
+            </div>
+            
+            <!-- Testimonial Card 6 -->
+            <div class="card-bg testimonial-card">
+              <div class="testimonial-header">
+                <img
+                  src="https://placehold.co/40x40/161828/9CA3AF?text=SP"
+                  alt="User 6"
+                  class="testimonial-avatar"
+                />
+                <div>
+                  <h4 class="testimonial-name">Samruddhi Patil</h4>
+                  <p class="testimonial-role">AIDS TY 2025-26</p>
+                </div>
+              </div>
+              <p class="testimonial-text">
+                "As a first-year student, DSSA has opened my eyes to the exciting world of data science. The workshops are beginner-friendly yet challenging enough to push my limits."
+              </p>
+            </div>
+            
+            <!-- Testimonial Card 7 -->
+            <div class="card-bg testimonial-card">
+              <div class="testimonial-header">
+                <img
+                  src="https://placehold.co/40x40/161828/9CA3AF?text=SH"
+                  alt="User 7"
+                  class="testimonial-avatar"
+                />
+                <div>
+                  <h4 class="testimonial-name">Swarali Sushant Hulle</h4>
+                  <p class="testimonial-role">AIDS SY 2025-26</p>
+                </div>
+              </div>
+              <p class="testimonial-text">
+                "The collaborative environment at DSSA has helped me develop both technical and soft skills. Working on real-world projects with peers has been an amazing learning experience."
+              </p>
+            </div>
+            
+        </section>
+      </div>
+    </div>
+    <footer class="site-footer">
+      <div class="footer-inner">
+        <div class="footer-left">
+          <div class="footer-logo">
+          <a href="index.html">  <div class="logo-circle"><img 
+            src="IMG/Favicon 1.png" 
+            srcset="IMG/Favicon 1.png 32w, IMG/Favicon 1.png 64w"
+            sizes="40px"
+            alt="DSSA Logo"  
+            width="100%"/></div></a>
+            <span class="copyright-text">COPYRIGHT ©2025 DSSA CLUB</span>
+          </div>
+        </div>
+        
+        <div class="footer-center">
+          <nav class="footer-nav">
+             
+            <a href="events.html">EVENTS</a>
+            <span class="nav-separator">|</span>
+            <a href="alumni.html">ALUMNI</a>
+            <span class="nav-separator">|</span>
+            <a href="team.html">TEAM</a>
+            <span class="nav-separator">|</span>
+            <a href="contact.html">CONTACT US</a>
+            
+        </nav>
+        </div>
+        
+        <div class="footer-right">
+          <div class="social-icons">
+            <a href="https://www.instagram.com/dssa_dkte/" target="_blank" rel="noopener" aria-label="Instagram" class="social-circle instagram">
+              <i class="fab fa-instagram"></i>
+            </a>
+            <a href="https://www.linkedin.com/company/data-science-student-association/" target="_blank" rel="noopener" aria-label="LinkedIn" class="social-circle linkedin">
+              <i class="fab fa-linkedin-in"></i>
+            </a>
+      </div>
+        </div>
+      </div>
+    </footer>
+    <script src="https://unpkg.com/lenis@1.3.8/dist/lenis.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.13.0/dist/gsap.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.13.0/dist/ScrollTrigger.min.js"></script>
+    <script src="https://unpkg.com/split-type"></script>
+    <script src="https://unpkg.com/@barba/core"></script>
+    <script>
+      // Performance optimizations
+      let ticking = false;
+      let lastScrollY = window.scrollY;
+      const header = document.querySelector('header');
+      
+      // Throttled scroll handler for nav hide/show
+      function updateNav() {
+        if (window.scrollY > lastScrollY && window.scrollY > 50) {
+          header.classList.add('nav-hidden');
+        } else {
+          header.classList.remove('nav-hidden');
+        }
+        lastScrollY = window.scrollY;
+        ticking = false;
+      }
+      
+      window.addEventListener('scroll', () => {
+        if (!ticking) {
+          requestAnimationFrame(updateNav);
+          ticking = true;
+        }
+      }, { passive: true });
+
+      // Lenis smooth scroll initialization with performance optimizations
+      const lenis = new Lenis({
+        lerp: 0.06, // Even smoother for better performance
+        smoothWheel: true,
+        smoothTouch: false,
+        gestureOrientation: 'vertical',
+        orientation: 'vertical',
+        wheelMultiplier: 0.8, // Reduced for smoother feel
+        touchMultiplier: 0.8, // Reduced for smoother feel
+        autoResize: true,
+        overscroll: true,
+        infinite: false,
+        syncTouch: true,
+        syncTouchLerp: 0.1,
+      });
+      
+      // Optimized RAF loop
+      function raf(time) {
+        lenis.raf(time);
+        requestAnimationFrame(raf);
+      }
+      requestAnimationFrame(raf);
+
+      // Optimized GSAP + SplitType Hero Animation
+      function initHeroAnimation() {
+        // Split the main heading into characters
+        const split = new SplitType('.main-heading', { types: 'chars' });
+        
+        // Pre-set initial states for better performance
+        gsap.set(split.chars, { opacity: 0, y: 20 }); // Shorter distance for faster feel
+        gsap.set('.subtitle', { opacity: 0, y: 20 });
+        gsap.set('.cta-btn', { opacity: 0, y: 20 });
+        
+        // Optimized animation timeline
+        const tl = gsap.timeline({ 
+          defaults: { ease: 'power2.out' },
+          onComplete: () => {
+            // Clean up references for better memory management
+            split.chars = null;
+          }
+        });
+        
+        tl.to(split.chars, {
+          opacity: 1,
+          y: 0,
+          duration: 0.5, // Much faster animation
+          stagger: {
+            each: 0.015, // Faster stagger for snappier feel
+            from: 'start',
+          }
+        })
+        .to('.subtitle', {
+          opacity: 1,
+          y: 0,
+          duration: 0.4,
+        }, '-=0.3') // Overlap animations
+        .to('.cta-btn', {
+          opacity: 1,
+          y: 0,
+          duration: 0.4,
+        }, '-=0.2');
+      }
+      
+      // Initialize hero animation when DOM is ready
+      if (document.readyState === 'loading') {
+        window.addEventListener('DOMContentLoaded', initHeroAnimation);
+      } else {
+        initHeroAnimation();
+      }
+
+      // --- Optimized Card Animations ---
+      function animateCards() {
+        // Cache DOM queries
+        const powerCards = document.querySelectorAll('.power-card');
+        const testimonialCards = document.querySelectorAll('.testimonial-card');
+        const domainCards = document.querySelectorAll('.domains-grid > .card-bg');
+        const allCards = [...powerCards, ...testimonialCards, ...domainCards];
+        
+        // Pre-calculate card positions and cache them
+        const cardData = allCards.map((card, i) => ({
+          element: card,
+          fromLeft: i % 2 === 0,
+          index: i
+        }));
+        
+        // Set initial states efficiently
+        cardData.forEach(({ element, fromLeft }) => {
+          gsap.set(element, {
+            opacity: 0,
+            x: fromLeft ? -40 : 40, // Shorter distance for faster animation
+            rotateY: fromLeft ? 6 : -6, // Reduced rotation for better performance
+            z: 0,
+          });
+        });
+        
+        // Optimized IntersectionObserver
+        const observer = new IntersectionObserver((entries) => {
+          entries.forEach(entry => {
+            if (entry.isIntersecting) {
+              const card = entry.target;
+              const cardInfo = cardData.find(data => data.element === card);
+              if (!cardInfo) return;
+              
+              gsap.to(card, {
+                opacity: 1,
+                x: 0,
+                rotateY: 0,
+                z: 0,
+                duration: 0.5, // Much faster animation
+                ease: 'power2.out', // Smoother easing
+                overwrite: 'auto',
+                delay: 0.02 * cardInfo.index, // Faster delay
+              });
+              observer.unobserve(card);
+            }
+          });
+        }, { threshold: 0.15, rootMargin: '50px' }); // Optimized threshold and margin
+        
+        allCards.forEach(card => observer.observe(card));
+        
+        // Optimized parallax effect with throttling
+        let parallaxTicking = false;
+        const updateParallax = () => {
+          cardData.forEach(({ element }) => {
+            const rect = element.getBoundingClientRect();
+            const winH = window.innerHeight;
+            if (rect.top < winH && rect.bottom > 0) {
+              const center = rect.top + rect.height/2 - winH/2;
+              const rotate = Math.max(-6, Math.min(6, center / winH * 12)); // Reduced rotation
+              gsap.to(element, {
+                rotateY: rotate,
+                duration: 0.2, // Much faster update
+                overwrite: 'auto',
+                ease: 'power1.out',
+              });
+            }
+          });
+          parallaxTicking = false;
+        };
+        
+        window.addEventListener('scroll', () => {
+          if (!parallaxTicking) {
+            requestAnimationFrame(updateParallax);
+            parallaxTicking = true;
+          }
+        }, { passive: true });
+      }
+      
+      // Initialize animations after DOM is ready
+      if (document.readyState === 'loading') {
+        window.addEventListener('DOMContentLoaded', animateCards);
+      } else {
+        animateCards();
+      }
+
+      // --- Barba.js Page Transitions (refined) ---
+      document.addEventListener('DOMContentLoaded', function() {
+        if (window.barba) {
+          barba.init({
+            transitions: [
+              {
+                name: 'slide-up',
+                leave(data) {
+                  // Slide up and fade out
+                  return gsap.to(data.current.container, {
+                    opacity: 0,
+                    y: -40,
+                    duration: 0.3, // Faster transition
+                    ease: 'power2.in',
+                  });
+                },
+                enter(data) {
+                  // Reset scroll to top
+                  window.scrollTo(0, 0);
+                  // Start new container below, slide up and fade in
+                  gsap.set(data.next.container, { opacity: 0, y: 40 });
+                  return gsap.to(data.next.container, {
+                    opacity: 1,
+                    y: 0,
+                    duration: 0.35, // Faster transition
+                    ease: 'power2.out',
+                  });
+                },
+                once(data) {
+                  gsap.fromTo(data.next.container, { opacity: 0, y: 40 }, { opacity: 1, y: 0, duration: 0.35, ease: 'power2.out' });
+                }
+              }
+            ]
+          });
+
+          // Sync <head> (title + styles) on navigation so page-specific CSS applies
+          barba.hooks.beforeEnter((data) => {
+            try {
+              const parser = new DOMParser();
+              const nextDoc = parser.parseFromString(data.next.html || '', 'text/html');
+              if (nextDoc && nextDoc.title) {
+                document.title = nextDoc.title;
+              }
+              // Remove previously injected head nodes
+              document.head.querySelectorAll('style[data-barba-head], link[rel="stylesheet"][data-barba-head]').forEach((el) => el.remove());
+              // Inject <style> and <link rel="stylesheet"> from next head
+              const nodesToCopy = nextDoc ? nextDoc.head.querySelectorAll('style, link[rel="stylesheet"]') : [];
+              nodesToCopy.forEach((node) => {
+                const clone = node.cloneNode(true);
+                clone.setAttribute('data-barba-head', '');
+                document.head.appendChild(clone);
+              });
+            } catch (e) {
+              // no-op if parsing fails
+            }
+          });
+
+          // Mark that a Barba navigation has started (used to trigger a safe reload after transition)
+          barba.hooks.before(() => {
+            try { sessionStorage.setItem('barbaNavigating', '1'); } catch (e) {}
+          });
+
+          // Re-bind any page-specific scripts after Barba swaps the container
+          function initPageScripts() {
+            // Re-bind FAQ accordion if present and not yet bound
+            document.querySelectorAll('.faq-question').forEach((q) => {
+              if (q.dataset.bound === 'true') return;
+              q.dataset.bound = 'true';
+              q.addEventListener('click', function () {
+                const item = this.parentElement;
+                const allItems = document.querySelectorAll('.faq-item');
+                allItems.forEach((el) => {
+                  if (el !== item) el.classList.remove('open');
+                });
+                item.classList.toggle('open');
+              });
+            });
+          }
+
+          barba.hooks.afterEnter(() => {
+            initPageScripts();
+            // Keep layout fixes in sync after transitions
+            if (typeof adjustTestimonialsHeight === 'function') {
+              adjustTestimonialsHeight();
+            }
+            if (typeof animateCards === 'function') {
+              animateCards();
+            }
+            // After the transition completes, perform a one-time hard reload so the page is fully initialized
+            try {
+              if (sessionStorage.getItem('barbaNavigating') === '1') {
+                sessionStorage.removeItem('barbaNavigating');
+                setTimeout(() => { window.location.reload(); }, 700);
+              }
+            } catch (e) {}
+          });
+          // Also run once on first paint
+          barba.hooks.once(() => {
+            initPageScripts();
+          });
+        }
+      });
+      // --- ChatGPT Search Integration (redirect) ---
+      (function() {
+        const input = document.querySelector('input[placeholder="Learn something new."]');
+        if (!input) return;
+        input.addEventListener('keydown', function(e) {
+          if (e.key === 'Enter' && input.value.trim()) {
+            const q = encodeURIComponent(input.value.trim());
+            window.open('https://chat.openai.com/?q=' + q, '_blank');
+          }
+        });
+      })();
+
+      // Hamburger dropdown menu
+      const hamburger = document.querySelector('.hamburger');
+      const navDropdown = document.querySelector('.nav-dropdown');
+      
+      if (hamburger && navDropdown) {
+      hamburger.addEventListener('click', () => {
+          navDropdown.classList.toggle('open');
+          
+          // Toggle hamburger icon
+          const icon = hamburger.querySelector('i');
+          if (icon) {
+            if (navDropdown.classList.contains('open')) {
+              icon.classList.remove('fa-bars');
+              icon.classList.add('fa-times');
+            } else {
+              icon.classList.add('fa-bars');
+              icon.classList.remove('fa-times');
+            }
+          }
+        });
+        
+        // Close dropdown when clicking outside
+        document.addEventListener('click', (e) => {
+          if (!hamburger.contains(e.target) && !navDropdown.contains(e.target)) {
+            navDropdown.classList.remove('open');
+            const icon = hamburger.querySelector('i');
+            if (icon) {
+              icon.classList.add('fa-bars');
+              icon.classList.remove('fa-times');
+            }
+          }
+        });
+        
+        // Close dropdown when clicking on a link
+        navDropdown.querySelectorAll('a').forEach(link => {
+          link.addEventListener('click', () => {
+            navDropdown.classList.remove('open');
+            const icon = hamburger.querySelector('i');
+            if (icon) {
+              icon.classList.add('fa-bars');
+              icon.classList.remove('fa-times');
+            }
+          });
+        });
+      }
+
+      // Optimized testimonials height adjustment
+      let resizeTicking = false;
+      function adjustTestimonialsHeight() {
+        const footer = document.querySelector('.site-footer');
+        const testimonials = document.getElementById('testimonials-section');
+        if (!footer || !testimonials) return;
+        
+        // Use transform3d for better performance
+        const vh = window.innerHeight;
+        const footerHeight = footer.offsetHeight || 0;
+        const minHeight = Math.max(0, vh - footerHeight);
+        testimonials.style.minHeight = minHeight + 'px';
+      }
+      
+      // Throttled resize handler
+      function throttledResize() {
+        if (!resizeTicking) {
+          requestAnimationFrame(() => {
+            adjustTestimonialsHeight();
+            resizeTicking = false;
+          });
+          resizeTicking = true;
+        }
+      }
+      
+      window.addEventListener('load', adjustTestimonialsHeight);
+      window.addEventListener('resize', throttledResize, { passive: true });
+      
+      // If Barba is present, also re-adjust after transitions
+      if (window.barba && barba.hooks && barba.hooks.afterEnter) {
+        barba.hooks.afterEnter(adjustTestimonialsHeight);
+      }
+
+      // --- DSSA Membership Popup Functionality ---
+      (function() {
+        const popup = document.getElementById('membership-popup');
+        const closeBtn = document.getElementById('popup-close');
+        
+        if (!popup || !closeBtn) {
+          return;
+        }
+        
+        // Show popup after 1 second
+        setTimeout(() => {
+          popup.classList.add('show');
+        }, 1000);
+        
+        // Close popup functionality
+        closeBtn.addEventListener('click', () => {
+          popup.classList.remove('show');
+        });
+        
+        // Close popup when clicking outside
+        popup.addEventListener('click', (e) => {
+          if (e.target === popup) {
+            popup.classList.remove('show');
+          }
+        });
+        
+        // Close popup with Escape key
+        document.addEventListener('keydown', (e) => {
+          if (e.key === 'Escape' && popup.classList.contains('show')) {
+            popup.classList.remove('show');
+          }
+        });
+      })();
+
+    </script>
+  </body>
+</html>
